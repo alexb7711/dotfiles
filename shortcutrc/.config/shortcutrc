@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# PATH
+PATH=$PATH:$HOME/Code/dwmblocks/scripts/
+PATH=$PATH:/home/alex/.local/bin
+
+# SSH
+alias ev3="10.0.1.171"

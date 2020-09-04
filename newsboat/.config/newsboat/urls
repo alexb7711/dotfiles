@@ -1,0 +1,22 @@
+""
+"--- LINUX ---"
+https://www.archlinux.org/feeds/news/ "arch" # Arch Linux News
+https://www.archlinux.org/feeds/planet/ "arch" # Arch Linux Planet
+https://lukesmith.xyz/rss.xml "linux" # Luke Smith Blog
+
+"" 
+"--- YT TECH ---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "yt-tech" # Brody Robertson
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVYamHliCI9rw1tHR1xbkfw "yt-tech" # Dave Lee
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3jSNmKWYA04R47fDcc1ImA "yt-tech" # InfinitelyGalactic
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt-tech" # Luke Smith YouTube
+https://videos.lukesmith.xyz/feeds/videos.xml?videoChannelId=2		     "pt-tech" # Luke Smith PeerTube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbZ8wD6pmGb9qHqvx9M4YBw "yt-tech" # TheFrugalComputerGuy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "yt-tech" # Wolfgang's Channel
+
+""
+"--- YOUTUBE ---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3tNpTOHsTnkmbwztCs30sA "yt" # Northerlion
+https://www.youtube.com/feeds/videos.xml?channel_id=UCafEZMU5s8geb9oIly6xTrg "yt" # R.C. Waldun
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5-WodiZoVSBmMpZ8QLjN2g "yt" # The Cantina
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJ24N4O0bP7LGLBDvye7oCA "yt" # Matt D'Avella

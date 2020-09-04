@@ -1,0 +1,3 @@
+#!/bin/sh
+
+stow -t ~/ aliasrc dunst git Xmodmap zshenv compton profile nvim shortcutrc zsh xinitrc rofi ncspot vifm newsboat slack-term

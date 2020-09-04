@@ -1,0 +1,659 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'D
+	/home/alex/Downloads/
+	..
+1585941907
+'H
+	/home/alex
+	Documents
+1586869294
+'b
+	/home/alex/bin/
+	..
+1585939475
+'c
+	/home/alex/Code
+	..
+1585941907
+'d
+	/home/alex/Documents/
+	..
+1585941907
+'h
+	/home/alex/
+	..
+1586869605
+'j
+	/home/alex/Documents
+	GraduateSchool
+1586869262
+'m
+	/home/alex/Documents/GraduateSchool
+	CoursePlan.pdf
+1586869259
+'v
+	/home/alex/Documents/Wiki/src
+	courseSchedule.md
+1587041817
+'w
+	/home/alex/Documents/Wiki/src
+	ece6030.md
+1586785030
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/alex/Documents/Wiki/src/GameDevelopment
+	Books
+1
+d/home/alex/Documents/Wiki/src/GameDevelopment/Books
+	GameEngineArchitecture.md
+1
+d/home/alex/Documents/Wiki/src/GameDevelopment
+	Books
+1
+d/home/alex/Documents/Wiki/src/GameDevelopment/Books
+	GameEngineArchitecture.md
+1
+d/home/alex/Code/dotfiles/nvim/.config/nvim
+	..
+0
+d/home/alex/Code/dotfiles/nvim/.config
+	nvim
+1
+d/home/alex/Code/dotfiles/nvim
+	..
+0
+d/home/alex/Code/dotfiles
+	nvim
+8
+d/home/alex/Code
+	dotfiles
+6
+d/home/alex
+	Code
+1
+d/home
+	alex
+1
+d/home/alex
+	.config
+4
+d/home/alex/.config
+	nvim
+20
+d/home/alex/.config/nvim
+	..
+0
+d/home/alex/Code/Embedded/OpenCR/arduino/opencr_develop/opencr_bootloader
+	opencr_flash.cfg
+11
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
+	port_handler_arduino.cpp
+14
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
+	port_handler_arduino.cpp
+14
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	CHANGELOG.rst
+3
+d/home/alex/Code/Embedded/DynamixelSDK
+	ros
+11
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
+	port_handler_arduino.cpp
+14
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK
+	c
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c
+	..
+0
+d/home/alex/Code/Embedded/DynamixelSDK
+	c
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c
+	example
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c/example
+	dxl_monitor
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c/example/dxl_monitor
+	mac
+4
+d/home/alex/Code/Embedded/DynamixelSDK/c/example
+	dxl_monitor
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c
+	example
+2
+d/home/alex/Code/Embedded/DynamixelSDK
+	ros
+11
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
+	group_sync_read.py
+7
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	include
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
+	port_handler_linux.h
+9
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	include
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
+	dynamixel_sdk.h
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
+	group_sync_read.cpp
+7
+d/home/alex/Code/Embedded/DynamixelSDK/ros/src
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	src
+2
+d/home/alex/Code/Embedded/DynamixelSDK
+	ros
+11
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	include
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
+	group_bulk_write.h
+3
+d/home/alex/Code/Embedded/DynamixelSDK/ros/include
+	dynamixel_sdk
+1
+d/home/alex/Code/Embedded/DynamixelSDK/ros
+	include
+1
+d/home/alex/Code/Embedded/DynamixelSDK
+	c++
+5
+d/home/alex/Code/Embedded/DynamixelSDK/c++
+	example
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example
+	dxl_monitor
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/dxl_monitor
+	..
+0
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example
+	protocol2.0
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
+	..
+0
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example
+	protocol2.0
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
+	broadcast_ping
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
+	linux32
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux32
+	..
+0
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
+	linux64
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux64
+	Makefile
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
+	linux64
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux64
+	Makefile
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
+	broadcast_ping.cpp
+7
+d/home/alex/Code/Embedded/DynamixelSDK/c++/build/arm
+	Makefile
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/build
+	arm
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++
+	example
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example
+	protocol2.0
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
+	ping
+7
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping
+	arm
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping/arm
+	libdxl_xarm64_cpp.so
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping
+	arm
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
+	ping
+7
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example
+	protocol1.0
+2
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0
+	ping
+3
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping
+	arm
+1
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping/arm
+	ping
+4
+d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping
+	ping.cpp
+8
+d/home/alex/Documents/Wiki/OldNotes/Controls
+	Chapter3
+3
+d/home/alex/Documents/Wiki/OldNotes
+	Controls
+1
+d/home/alex/Documents/Wiki
+	OldNotes
+2
+d/home/alex/Documents
+	temp
+8
+d/home/alex/Documents/temp
+	Chapter5
+1
+d/home/alex/Documents
+	temp
+8
+d/home/alex
+	Documents
+20
+d/home/alex/Documents
+	Wiki
+6
+d/home/alex/Documents/Wiki
+	pdf
+3
+d/home/alex/Documents/Wiki/src/diary
+	..
+0
+d/home/alex/Documents/Wiki/src
+	diary
+8
+d/home/alex/Documents/Wiki/src/diary
+	..
+0
+d/home/alex/Videos
+	2020-08-30_20-48-58.mkv
+2
+d
+
+# Right window history (oldest to newest):
+D/
+	home
+4
+D/home/alex/Videos
+	2020-06-04_21-16-24.mkv
+1
+D/home/alex
+	Code
+1
+D/home
+	alex
+1
+D/home/alex
+	Code
+1
+D/home
+	alex
+1
+D/home/alex
+	..
+0
+D/home
+	alex
+1
+D/
+	lib64
+6
+D/lib64
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:!mkdir ObjectHandler
+:!mkdir Objects
+:!mkdir ResourceManager
+:!touch ResourceManager.hpp
+:!touch ResourceManager.cpp
+:!touch ResourceHandler.cpp
+:!touch ResourceHandler.hpp
+:!touch 
+:!touch FPSMonitor.cpp
+:!touch FPSMonitor.hpp
+:!mkdir State
+:reg
+:w
+:test
+:!dwm
+:!touch 2020-04-08-stow.md
+:x
+:bmarks
+:!mv c++.md Programming/
+:!mv flutter.* Programming/ 
+:!mv flutteranimations.md Programming/; mv fluttervsreactnative.md Programming/
+:!mv markdown.md Programming/
+:!mv introductiontomarkdown.md Programming/
+:!mkdir BlogAndYT
+:!mkdir 
+:!mv aboutme.md BlogAndYT/
+:!mv understandingflutter.md Programming/
+:!mv installingflutter.md Programming/
+:!mv cozyflutter.md Programming/
+:! mv animat
+:!mv setupjekyllforgithubpages.md BlogAndYT/
+:!mv jekyll.md BlogAndYT/
+:!mv topicideas.md BlogAndYT/
+:!mkdir BulletJournal
+:!mv 2020annualretro.md BulletJournal/
+:!mv bulletjournal2020.md BulletJournal/
+:!mv 2020april.md BulletJournal/
+:!mv 2020april.* BulletJournal/
+:!mv 2020february.* BulletJournal/
+:!mv 2020january.* BulletJournal/
+:!mv 2020march.* BulletJournal/
+:!mkdir GameDevelopment
+:!mv componentsofgameframework.* GameDevelopment/
+:!mv maingameloop.md GameDevelopment/
+:!mv resourcemanagement.md GameDevelopment/
+:!mv animation.md GameDevelopment/
+:!mv sfml.* GameDevelopment/
+:!mv gamedesignpatterns.* GameDevelopment/
+:!mkdir Lifestyle
+:!mv timemanagement.md Lifestyle/
+:!mv homenetworknotes.* Lifestyle/
+:!mkdir Linux
+:!mv cliprograms.md Lifestyle/
+:!mv Lifestyle/cliprograms.md Linux/
+:!mv dotfiles.md Linux/
+:! mv vim.md Linux/
+:!mv vimcodefolding.md Linux/
+:mkdir CourseSchedule
+:!mv courseSchedule.* CourseSchedule/
+:!mv ece
+:!mv managedotfileswithrsync.* Linux/
+:!mv managedotfileswithstow.* Linux/
+:!mv prioritizeyourlife.md Lifestyle/
+:!mv *.pdf CourseSchedule/
+:!mv *.md CourseSchedule/; mv CourseSchedule/index.md .
+:!mv C/ Books/
+:.,.+1!k
+:!mv CourseSchedule/ School/
+:!mv output.pdf ApprovedProgramOfStudy.pdf
+:!mv Animate.cpp AnimatedSprite.cpp
+:!mv Animate.hpp AnimatedSprite.hpp
+:!mv ObjectManager.* ObjectHandler.*
+:!mv ObjectManager.hpp ObjectHandler.hpp
+:!mv ObjectManager.cpp ObjectHandler.cpp
+:!mkdir temp
+:q
+
+# Search history (oldest to newest):
+/components
+/state
+/flutterkkkkkkkjk
+/Markdown
+/mv flutter
+/d
+/lib
+/Acc
+/vim
+/pack
+
+# Prompt history (oldest to newest):
+pGUI
+pResourceContainer.cpp
+pResourceContainer.hpp
+pResourceHandler
+p2020-04-08-Using-stow-To-Manage-Your-Dotfiles.md
+pCenterStackWidget.cpp
+pCenterStackWidget.hpp
+pcourseSchedule.md
+pCoursePlan.pdf
+p2020-04-30-The-C-Programming-Language-Notes.md
+pCITI - Collaborative Institutional Training Initiative.pdf
+pCITI-DataManagement.pdf
+plibdxl_xaarm64_cpp.so.old
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-49.mkv
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/alex/.local/share/vifm/Trash/000_SFML-Game-Development
+	/home/alex/Documents/SFML-Game-Development
+t/home/alex/.local/share/vifm/Trash/000_Makefile
+	/home/alex/Code/SSGF/src/Makefile
+t/home/alex/.local/share/vifm/Trash/000_componentsofframework.md
+	/home/alex/Documents/Wiki/src/componentsofframework.md
+t/home/alex/.local/share/vifm/Trash/000_componentsofframework.pdf
+	/home/alex/Documents/Wiki/src/componentsofframework.pdf
+t/home/alex/.local/share/vifm/Trash/000_Brown, Alexander.pdf
+	/home/alex/Downloads/Brown, Alexander.pdf
+t/home/alex/.local/share/vifm/Trash/000_ResourceContainer.cpp
+	/home/alex/Code/SSGF/src/ResourceHandler/ResourceContainer.cpp
+t/home/alex/.local/share/vifm/Trash/000_c.md
+	/home/alex/Documents/Wiki/src/c.md
+t/home/alex/.local/share/vifm/Trash/000_api.md
+	/home/alex/Documents/Wiki/src/Programming/api.md
+t/home/alex/.local/share/vifm/Trash/000_api.pdf
+	/home/alex/Documents/Wiki/src/Programming/api.pdf
+t/home/alex/.local/share/vifm/Trash/000_maingameloop.md
+	/home/alex/Documents/Wiki/src/GameDevelopment/maingameloop.md
+t/home/alex/.local/share/vifm/Trash/000_resourcemanagement.md
+	/home/alex/Documents/Wiki/src/GameDevelopment/resourcemanagement.md
+t/home/alex/.local/share/vifm/Trash/000_sfml.md
+	/home/alex/Documents/Wiki/src/GameDevelopment/sfml.md
+t/home/alex/.local/share/vifm/Trash/000_sfml.pdf
+	/home/alex/Documents/Wiki/src/GameDevelopment/sfml.pdf
+t/home/alex/.local/share/vifm/Trash/000_MovingOut
+	/home/alex/Documents/MovingOut
+t/home/alex/.local/share/vifm/Trash/000_'
+	/home/alex/Code/SSGF/src/'
+t/home/alex/.local/share/vifm/Trash/000_Animate.cpp
+	/home/alex/Code/SSGF/src/Utilities/Animate.cpp
+t/home/alex/.local/share/vifm/Trash/000_Animate.hpp
+	/home/alex/Code/SSGF/src/Utilities/Animate.hpp
+t/home/alex/.local/share/vifm/Trash/000_tags
+	/home/alex/Code/SSGF/src/GUI/tags
+t/home/alex/.local/share/vifm/Trash/000_ObjectHandler
+	/home/alex/Code/SSGF/src/Objects/ObjectHandler
+t/home/alex/.local/share/vifm/Trash/000_ev3dev-stretch-ev3-generic-2020-04-10
+	/home/alex/Downloads/ev3dev-stretch-ev3-generic-2020-04-10
+t/home/alex/.local/share/vifm/Trash/000_ev3dev-stretch-ev3-generic-2020-04-10.zip
+	/home/alex/Downloads/ev3dev-stretch-ev3-generic-2020-04-10.zip
+t/home/alex/.local/share/vifm/Trash/000_install66.fs
+	/home/alex/Downloads/install66.fs
+t/home/alex/.local/share/vifm/Trash/000_TileMapIO.cpp
+	/home/alex/Code/SFML/SSGF/src/Objects/Map/TileMapIO.cpp
+t/home/alex/.local/share/vifm/Trash/000_TileMapIO.hpp
+	/home/alex/Code/SFML/SSGF/src/Objects/Map/TileMapIO.hpp
+t/home/alex/.local/share/vifm/Trash/000_BulletJournal
+	/home/alex/Documents/Wiki/src/BulletJournal
+t/home/alex/.local/share/vifm/Trash/000_bulletjournal2020.md
+	/home/alex/Documents/Wiki/src/diary/bulletjournal2020.md
+t/home/alex/.local/share/vifm/Trash/000_StatementOfPurpose.aux
+	/home/alex/Documents/CoverLetters/SDL/StatementOfPurpose.aux
+t/home/alex/.local/share/vifm/Trash/000_StatementOfPurpose.log
+	/home/alex/Documents/CoverLetters/SDL/StatementOfPurpose.log
+t/home/alex/.local/share/vifm/Trash/000_StatementOfPurpose.pdf
+	/home/alex/Documents/CoverLetters/SDL/StatementOfPurpose.pdf
+t/home/alex/.local/share/vifm/Trash/000_StatementOfPurpose.tex
+	/home/alex/Documents/CoverLetters/SDL/StatementOfPurpose.tex
+t/home/alex/.local/share/vifm/Trash/000_resume.cls
+	/home/alex/Documents/CoverLetters/SDL/resume.cls
+t/home/alex/.local/share/vifm/Trash/000_microcos.md
+	/home/alex/Documents/Wiki/src/Programming/Books/microcos.md
+t/home/alex/.local/share/vifm/Trash/000_microcos.pdf
+	/home/alex/Documents/Wiki/src/Programming/Books/microcos.pdf
+t/home/alex/.local/share/vifm/Trash/000_2020-06-03_16-11-56.mkv
+	/home/alex/Videos/2020-06-03_16-11-56.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-02-25.mkv
+	/home/alex/Videos/2020-06-04_21-02-25.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-03-49.mkv
+	/home/alex/Videos/2020-06-04_21-03-49.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-06-37.mkv
+	/home/alex/Videos/2020-06-04_21-06-37.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-17-47.mkv
+	/home/alex/Videos/2020-06-04_21-17-47.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-18-51.mkv
+	/home/alex/Videos/2020-06-04_21-18-51.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-20-17.mkv
+	/home/alex/Videos/2020-06-04_21-20-17.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-22-10.mkv
+	/home/alex/Videos/2020-06-04_21-22-10.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-23-46.mkv
+	/home/alex/Videos/2020-06-04_21-23-46.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-31-24.mkv
+	/home/alex/Videos/2020-06-04_21-31-24.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-11-48.mkv
+	/home/alex/Videos/2020-06-04_21-11-48.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-06-04_21-16-24.mkv
+	/home/alex/Videos/2020-06-04_21-16-24.mkv
+t/home/alex/.local/share/vifm/Trash/000_st_BACKUP_26747.c
+	/home/alex/Code/Suckless/st/st_BACKUP_26747.c
+t/home/alex/.local/share/vifm/Trash/000_st_BACKUP_28231.c
+	/home/alex/Code/Suckless/st/st_BACKUP_28231.c
+t/home/alex/.local/share/vifm/Trash/000_st_BASE_26747.c
+	/home/alex/Code/Suckless/st/st_BASE_26747.c
+t/home/alex/.local/share/vifm/Trash/000_st_BASE_28231.c
+	/home/alex/Code/Suckless/st/st_BASE_28231.c
+t/home/alex/.local/share/vifm/Trash/000_st_LOCAL_26747.c
+	/home/alex/Code/Suckless/st/st_LOCAL_26747.c
+t/home/alex/.local/share/vifm/Trash/000_st_LOCAL_28231.c
+	/home/alex/Code/Suckless/st/st_LOCAL_28231.c
+t/home/alex/.local/share/vifm/Trash/000_st_REMOTE_26747.c
+	/home/alex/Code/Suckless/st/st_REMOTE_26747.c
+t/home/alex/.local/share/vifm/Trash/000_st_REMOTE_28231.c
+	/home/alex/Code/Suckless/st/st_REMOTE_28231.c
+t/home/alex/.local/share/vifm/Trash/000_st.c.orig
+	/home/alex/Code/Suckless/st/st.c.orig
+t/home/alex/.local/share/vifm/Trash/000_st_BACKUP_29966.c
+	/home/alex/Code/Suckless/st/st_BACKUP_29966.c
+t/home/alex/.local/share/vifm/Trash/000_st_BASE_29966.c
+	/home/alex/Code/Suckless/st/st_BASE_29966.c
+t/home/alex/.local/share/vifm/Trash/000_st_LOCAL_29966.c
+	/home/alex/Code/Suckless/st/st_LOCAL_29966.c
+t/home/alex/.local/share/vifm/Trash/000_st_REMOTE_29966.c
+	/home/alex/Code/Suckless/st/st_REMOTE_29966.c
+t/home/alex/.local/share/vifm/Trash/001_'
+	/home/alex/Documents/Wiki/'
+t/home/alex/.local/share/vifm/Trash/000_debian-10.4.0-i386-netinst.iso
+	/home/alex/Downloads/debian-10.4.0-i386-netinst.iso
+t/home/alex/.local/share/vifm/Trash/000_HackerMan.png
+	/home/alex/Downloads/HackerMan.png
+t/home/alex/.local/share/vifm/Trash/000_web-server_nginx_gitlab-omnibus-ssl-nginx.conf
+	/home/alex/Downloads/web-server_nginx_gitlab-omnibus-ssl-nginx.conf
+t/home/alex/.local/share/vifm/Trash/000_hackerman.png
+	/home/alex/Downloads/hackerman.png
+t/home/alex/.local/share/vifm/Trash/000_suckless.png
+	/home/alex/Downloads/suckless.png
+t/home/alex/.local/share/vifm/Trash/000_suckless.svg
+	/home/alex/Downloads/suckless.svg
+t/home/alex/.local/share/vifm/Trash/000_componentsofgameframework.md
+	/home/alex/Documents/Wiki/src/GameDevelopment/componentsofgameframework.md
+t/home/alex/.local/share/vifm/Trash/000_animation.md
+	/home/alex/Documents/Wiki/src/GameDevelopment/animation.md
+t/home/alex/.local/share/vifm/Trash/000_libdxl_xaarm64_cpp.so.old
+	/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping/arm/libdxl_xaarm64_cpp.so.old
+t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-44-00.mkv
+	/home/alex/Videos/2020-08-30_20-44-00.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-46-14.mkv
+	/home/alex/Videos/2020-08-30_20-46-14.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-07.mkv
+	/home/alex/Videos/2020-08-30_20-47-07.mkv
+t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-49.mkv
+	/home/alex/Videos/2020-08-30_20-47-49.mkv
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0

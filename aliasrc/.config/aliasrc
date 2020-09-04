@@ -1,0 +1,16 @@
+#!/bin/sh
+
+alias aliasrc="nvim $HOME/.config/aliasrc"
+alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.7m"
+alias gdb="gdb -tui"
+alias mail="neomutt"
+alias spot="ncspot"
+alias rm="trash-put"
+alias sp="source $HOME/.profile"
+alias sz="source $HOME/.config/zsh/.zshrc"
+alias v="nvim"
+alias vs="nvim -S .vs"
+alias vimrc="nvim $HOME/.config/nvim/init.vim"
+alias vp="nvim $HOME/.profile"
+alias vw="nvim -c VimwikiIndex"
+alias zshrc="nvim ~/.config/zsh/.zshrc"

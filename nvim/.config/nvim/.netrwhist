@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/alex/Code/dotfiles/rofi/.config/rofi/launchers'
+let g:netrw_dirhist_3='/home/alex/Code/dotfiles/rofi/.config/rofi'
+let g:netrw_dirhist_2='/home/alex/Code/dotfiles/rofi/.config/rofi/launchers'
+let g:netrw_dirhist_1='/home/alex/Code/dotfiles/rofi/.config/rofi'
 let g:netrw_dirhist_0='/home/alex/Code/Suckless/dwm'
 let g:netrw_dirhist_9='/home/alex/Code/dotfiles/nvim/.config/nvim/plugged/vim-matlab/ftplugin/matlab'
 let g:netrw_dirhist_8='/home/alex/Code/dotfiles/nvim/.config/nvim/plugged/vim-matlab/ftplugin'
 let g:netrw_dirhist_7='/home/alex/Code/dotfiles/nvim/.config/nvim/plugged/vim-matlab'
 let g:netrw_dirhist_6='/home/alex/Code/ROS/Patrol/src/termviz/include/termviz'
 let g:netrw_dirhist_5='/home/alex/Code/ROS/Patrol/src/termviz/include'
-let g:netrw_dirhist_4='/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal/src'
-let g:netrw_dirhist_3='/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal'
-let g:netrw_dirhist_2='/home/alex/Code/ROS/Patrol/src/high_level_control'
-let g:netrw_dirhist_1='/home/alex/Code/ROS/Patrol/src'

@@ -97,3 +97,7 @@ bindkey '^e' edit-command-line
 #===============================================================================#
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# ROS Environment Variables
+source /opt/ros/melodic/setup.zsh
+ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/Code/ROS/catkin/src:$HOME/Code/ROS/Patrol/src

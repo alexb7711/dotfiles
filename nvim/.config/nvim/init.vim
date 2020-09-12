@@ -11,6 +11,7 @@
 "==============================================================================="
 set nocompatible 
 filetype plugin on
+filetype plugin indent on
 syntax on
 
 " Indenting
@@ -32,37 +33,34 @@ set wildmenu
 call plug#begin()
 
 	" Aesthetics
-"	Plug 'albertomontesg/lightline-asyncrun'
-"	Plug 'itchyny/lightline.vim'
-"	Plug 'mhinz/vim-startify'
-"	Plug 'skywind3000/asyncrun.vim'
-"	Plug 'morhetz/gruvbox'
-"	Plug 'shinchu/lightline-gruvbox.vim'
-"	Plug 'junegunn/goyo.vim'
-"	Plug 'junegunn/limelight.vim'
-"
-"	" LSP & Auto Complete
-"	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"	Plug 'neovim/nvim-lsp'
-"	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"	Plug 'Shougo/deoplete-lsp'
-"
-"	" Utility
-"	Plug 'airblade/vim-gitgutter'
-"	Plug 'godlygeek/tabular'
-"	Plug 'skywind3000/asyncrun.vim'
-"	Plug 'tpope/vim-fugitive'
-"	Plug 'vim-scripts/c.vim'
-"	
-"	" File Management
-"	Plug 'vimwiki/vimwiki'
-"	Plug 'vifm/vifm.vim'
-"
-"	" Syntax
-"	Plug 'dart-lang/dart-vim-plugin'
-"	Plug 'lervag/vimtex'
-"	Plug 'thosakwe/vim-flutter'
-"	Plug 'scrooloose/nerdcommenter'
+	Plug 'albertomontesg/lightline-asyncrun'
+	Plug 'itchyny/lightline.vim'
+	Plug 'junegunn/goyo.vim'
+	Plug 'mhinz/vim-startify'
+	Plug 'skywind3000/asyncrun.vim'
+	Plug 'morhetz/gruvbox'
+	Plug 'shinchu/lightline-gruvbox.vim'
+
+	" LSP & Auto Complete
+	Plug 'neovim/nvim-lsp'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete-lsp'
+
+	" Utility
+	Plug 'airblade/vim-gitgutter'
+	Plug 'godlygeek/tabular'
+	Plug 'skywind3000/asyncrun.vim'
+	Plug 'tpope/vim-fugitive'
+	Plug 'vim-scripts/c.vim'
+	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
+	
+	" File Management
+	Plug 'vimwiki/vimwiki'
+	Plug 'vifm/vifm.vim'
+
+	" Syntax
+	Plug 'lervag/vimtex'
+	Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -81,27 +79,17 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><spa
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 
-" Goyo
-autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width = 80 
-autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
-
-" Limelight
-autocmd! User GoyoEnter Limelight
-" autocmd! User GoyoLeave Limelight!
-autocmd! User GoyoLeave source ~/.config/nvim/init.vim
-
 " Save Sessions
 autocmd BufWrite *.cpp :mksession! .vs
 autocmd BufWrite *.c   :mksession! .vs
 autocmd BufWrite *.h   :mksession! .vs
 autocmd BufWrite *.hpp :mksession! .vs
-
+    
 " Sets numbering style on the left hand side
-:set number relativenumber
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set number
 :augroup END
 
 " Spell Check
@@ -169,7 +157,7 @@ nnoremap <silent> <space>ts :vsplit term://zsh<CR>
 nnoremap <space>sb :20Lex<CR>
 
 "==============================================================================="
-" INDENTATION "
+" FUNCTIONS "
 "==============================================================================="
 " Swap between h and c files
 function! OpenOther()
@@ -194,8 +182,8 @@ autocmd Filetype hpp setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype c setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype h setlocal expandtab shiftwidth=2 softtabstop=2
 
-" Dart indent style
-autocmd Filetype dart setlocal expandtab shiftwidth=2 softtabstop=2
+" Matlab indent style
+autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
 
 "==============================================================================="
 " PLUGGINS 
@@ -203,10 +191,9 @@ autocmd Filetype dart setlocal expandtab shiftwidth=2 softtabstop=2
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
-" Limelight 
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_default_coefficient = 0.5
+" Matlab
+" Open Split in Vim
+let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
 
 " Nerd Commentor Settings
 let g:NERDSpaceDelims = 1
@@ -216,7 +203,6 @@ let g:NERDToggleCheckAllLines = 1
 lua << END
 require'nvim_lsp'.bashls.setup{}
 require'nvim_lsp'.clangd.setup{}
-require'nvim_lsp'.dartls.setup{}
 require'nvim_lsp'.pyls.setup{}
 require'nvim_lsp'.texlab.setup{}
 require'nvim_lsp'.vimls.setup{}
@@ -266,6 +252,9 @@ nnoremap <space>ff :Vifm<CR>
 nnoremap <space>fv :VsplitVifm<CR>
 nnoremap <space>fh :SplitVifm<CR>
 nnoremap <space>ft :TabVifm<CR>
+
+" Vimtex
+let g:tex_flavor = 'latex'
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Documents/Wiki/src/',

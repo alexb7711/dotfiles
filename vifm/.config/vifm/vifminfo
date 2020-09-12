@@ -54,57 +54,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/alex/Documents/Wiki/src/GameDevelopment
-	Books
-1
-d/home/alex/Documents/Wiki/src/GameDevelopment/Books
-	GameEngineArchitecture.md
-1
-d/home/alex/Documents/Wiki/src/GameDevelopment
-	Books
-1
-d/home/alex/Documents/Wiki/src/GameDevelopment/Books
-	GameEngineArchitecture.md
-1
-d/home/alex/Code/dotfiles/nvim/.config/nvim
-	..
-0
-d/home/alex/Code/dotfiles/nvim/.config
-	nvim
-1
-d/home/alex/Code/dotfiles/nvim
-	..
-0
-d/home/alex/Code/dotfiles
-	nvim
-8
-d/home/alex/Code
-	dotfiles
-6
-d/home/alex
-	Code
-1
-d/home
-	alex
-1
-d/home/alex
-	.config
-4
-d/home/alex/.config
-	nvim
-20
-d/home/alex/.config/nvim
-	..
-0
-d/home/alex/Code/Embedded/OpenCR/arduino/opencr_develop/opencr_bootloader
-	opencr_flash.cfg
-11
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
-	port_handler_arduino.cpp
-14
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
 d/home/alex/Code/Embedded/DynamixelSDK/ros
 	src
 2
@@ -354,6 +303,57 @@ d/home/alex/Documents/Wiki/src/diary
 d/home/alex/Videos
 	2020-08-30_20-48-58.mkv
 2
+d/home/alex/Downloads
+	turtlebot_launch_rosinstall_proj3.rosinstall
+3
+d/usr/local
+	..
+0
+d/usr
+	local
+8
+d/home/alex/Videos
+	2020-08-30_20-48-58.mkv
+2
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/GraphSearch
+	..
+0
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
+	World
+3
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/World
+	OccupancyGrid.m
+4
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/GraphSearch
+	..
+0
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
+	testGraphSearch.m
+4
+d/home/alex/Code/ROS/Patrol/src/low_level_control/dynamic_models
+	include
+1
+d/home/alex/Code/ROS/Patrol/src/low_level_control
+	dynamic_models
+3
+d/home/alex/Code/ROS/Patrol/src
+	network-topolology-emulator
+4
+d/home/alex/Code/ROS/Patrol/src/network-topolology-emulator
+	network_topology_emulator
+4
+d/home/alex/Code/ROS/Patrol/src
+	low_level_control
+3
+d/home/alex/Code/ROS/Patrol/src/low_level_control
+	controllers
+2
+d/home/alex/Code/ROS/Patrol/src/low_level_control/controllers
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/low_level_control/controllers/src
+	patrol_g2g.cpp
+3
 d
 
 # Right window history (oldest to newest):
@@ -468,6 +468,8 @@ D
 :q
 
 # Search history (oldest to newest):
+/patrol
+/Scho
 /components
 /state
 /flutterkkkkkkkjk
@@ -497,7 +499,7 @@ plibdxl_xaarm64_cpp.so.old
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-49.mkv
+""/home/alex/.local/share/vifm/Trash/000_2020-09-07_16-38-55.mkv
 
 # Directory stack (oldest to newest):
 
@@ -646,6 +648,42 @@ t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-07.mkv
 	/home/alex/Videos/2020-08-30_20-47-07.mkv
 t/home/alex/.local/share/vifm/Trash/000_2020-08-30_20-47-49.mkv
 	/home/alex/Videos/2020-08-30_20-47-49.mkv
+t/home/alex/.local/share/vifm/Trash/000_archives
+	/home/alex/Downloads/archives
+t/home/alex/.local/share/vifm/Trash/000_bin
+	/home/alex/Downloads/bin
+t/home/alex/.local/share/vifm/Trash/000_help
+	/home/alex/Downloads/help
+t/home/alex/.local/share/vifm/Trash/000_java
+	/home/alex/Downloads/java
+t/home/alex/.local/share/vifm/Trash/000_licenses
+	/home/alex/Downloads/licenses
+t/home/alex/.local/share/vifm/Trash/000_sys
+	/home/alex/Downloads/sys
+t/home/alex/.local/share/vifm/Trash/000_ui
+	/home/alex/Downloads/ui
+t/home/alex/.local/share/vifm/Trash/000_activate.ini
+	/home/alex/Downloads/activate.ini
+t/home/alex/.local/share/vifm/Trash/000_install
+	/home/alex/Downloads/install
+t/home/alex/.local/share/vifm/Trash/000_install_guide.pdf
+	/home/alex/Downloads/install_guide.pdf
+t/home/alex/.local/share/vifm/Trash/000_installer_input.txt
+	/home/alex/Downloads/installer_input.txt
+t/home/alex/.local/share/vifm/Trash/000_license_agreement.txt
+	/home/alex/Downloads/license_agreement.txt
+t/home/alex/.local/share/vifm/Trash/000_patents.txt
+	/home/alex/Downloads/patents.txt
+t/home/alex/.local/share/vifm/Trash/000_readme.txt
+	/home/alex/Downloads/readme.txt
+t/home/alex/.local/share/vifm/Trash/000_trademarks.txt
+	/home/alex/Downloads/trademarks.txt
+t/home/alex/.local/share/vifm/Trash/000_2020-09-07_16-38-55.mkv
+	/home/alex/Videos/2020-09-07_16-38-55.mkv
+t/home/alex/.local/share/vifm/Trash/000_GraphSearchCode
+	/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
+t/home/alex/.local/share/vifm/Trash/000_GraphSearchCode.zip
+	/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode.zip
 
 # State:
 f

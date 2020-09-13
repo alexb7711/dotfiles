@@ -1,0 +1,37 @@
+[
+  {
+    "wiki":null,
+    "metapackage":false,
+    "description":"The termviz package",
+    "repository":null,
+    "maintainers":[
+      "alex"
+    ],
+    "dependencies":[
+      "nav_msgs",
+      "rospy",
+      "std_msgs",
+      "roscpp"
+    ],
+    "authors":[],
+    "bugTracker":null,
+    "id":"termviz",
+    "size":"19.51",
+    "lines":622,
+    "analysis":{
+      "metrics":{},
+      "violations":{
+        "haros_plugin_cpplint:todo_format":3,
+        "haros_plugin_cppcheck:cppcheckRule":1,
+        "haros_plugin_cpplint:deprecated_casting":7,
+        "haros_plugin_cpplint:whitespace_before_paren_if":1,
+        "haros_plugin_cpplint:whitespace_end_line":7,
+        "haros_plugin_cpplint:if_else_indentation":1,
+        "haros_plugin_cpplint:explicit_constructors":1,
+        "haros_plugin_cpplint:two_space_indent":5
+      }
+    },
+    "version":"0.0.0",
+    "sloc":539
+  }
+]

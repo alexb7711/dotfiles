@@ -1,0 +1,26 @@
+%YAML 1.1
+---
+analysis:
+    ignore:
+        rules:
+            - "haros_plugin_cpplint:opening_curly_brace"
+            - "haros_plugin_cpplint:no_copyright"
+            - "haros_plugin_cpplint:header_guard_format"
+            - "haros_plugin_cpplint:header_guard_close"
+            - "haros_plugin_cpplint:max_line_length_80"
+            - "haros_plugin_cpplint:opening_curly_brace"
+            - "haros_plugin_cpplint:else_line"
+            - "haros_plugin_cpplint:include_order"
+            - "haros_plugin_cpplint:opening_brace_line"
+            - "haros_plugin_cpplint:closing_brace_line"
+            - "haros_plugin_cpplint:indent_access_mod"
+            - "haros_plugin_cppcheck:harosAssignIncrement"
+            - "haros_plugin_cppcheck:harosIntegerTypes"
+            - "haros_plugin_cppcheck:harosAssignAssignment"
+            - "haros_plugin_radon:halstead_volume_above_8000"
+            - "haros_plugin_radon:halstead_bugs_above_2"
+            - "haros_plugin_ccd:halstead_bugs_above_2"
+            - "haros_plugin_ccd:halstead_volume_above_8000"
+        metrics:
+            - "haros_plugin_ccd:halstead_bugs"
+            - "haros_plugin_radon:halstead_bugs"

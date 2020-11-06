@@ -9,6 +9,10 @@
 "==============================================================================="
 " VIM CONFIGURATION 
 "==============================================================================="
+
+" Clear previous auto commands
+autocmd!
+
 set nocompatible 
 filetype plugin on
 filetype plugin indent on
@@ -35,9 +39,7 @@ call plug#begin()
 	" Aesthetics
 	Plug 'albertomontesg/lightline-asyncrun'
 	Plug 'itchyny/lightline.vim'
-	Plug 'junegunn/goyo.vim'
 	Plug 'mhinz/vim-startify'
-	Plug 'skywind3000/asyncrun.vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'shinchu/lightline-gruvbox.vim'
 
@@ -45,6 +47,7 @@ call plug#begin()
 	Plug 'neovim/nvim-lsp'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'Shougo/deoplete-lsp'
+	Plug 'taketwo/vim-ros'
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
@@ -69,21 +72,21 @@ call plug#end()
 "==============================================================================="
 
 " Autocompile
-" autocmd BufWrite *.md :silent exec 'AsyncRun compile %:p'
-autocmd BufWrite *.md,*.tex :exec 'AsyncRun compile %:p'
+autocmd BufWrite *.md,*.markdown,*.tex :exec 'AsyncRun compile %:p'
 
 " Auto Correct Spelling
-autocmd BufEnter,FocusGained,InsertLeave *.md,*.tex nnoremap <silent> <space><space> ms[s1z=`s
+autocmd BufEnter,FocusGained,InsertLeave *.md,*.markdown,*.tex nnoremap <silent> <space><space> ms[s1z=`s
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
 
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 
+" Compile Hotkey
+autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
+autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
+
 " Save Sessions
-autocmd BufWrite *.cpp :mksession! .vs
-autocmd BufWrite *.c   :mksession! .vs
-autocmd BufWrite *.h   :mksession! .vs
-autocmd BufWrite *.hpp :mksession! .vs
+autocmd BufWrite *.cpp,*.c,*.h,*.hpp,*.py :mksession! .vs
     
 " Sets numbering style on the left hand side
 :augroup numbertoggle
@@ -93,8 +96,7 @@ autocmd BufWrite *.hpp :mksession! .vs
 :augroup END
 
 " Spell Check
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.md,*.markdown,*.tex setlocal spell
 
 "==============================================================================="
 " COLORS
@@ -122,8 +124,11 @@ set colorcolumn=81
 "==============================================================================="
 
 " Auto Complete Hotkeys
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
+autocmd Filetype c,cpp,hpp,h inoremap <buffer> <C-j> <C-n>
+autocmd Filetype c,cpp,hpp,h inoremap <buffer> <C-k> <C-p>
+
+" inoremap <buffer> <C-j> <C-n>
+" inoremap <buffer> <C-k> <C-p>
 
 " Ctags
 command! MakeTags !ctags -R .
@@ -139,14 +144,18 @@ nnoremap <space>P "+P
 vnoremap <space>p "+p
 vnoremap <space>P "+P
 
-" Goyo
-nnoremap <space>gg :Goyo \| set linebreak<CR>
-
 " Open current pdf in zathura
 nnoremap <silent> <space>z :!zathura %:r.pdf&<CR>
 
 " Reload Vim
 nnoremap <space>rv :source ~/.config/nvim/init.vim<CR>
+
+" Searching
+augroup search
+	autocmd!
+	autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>w yiw:silent<space>grep!<space>-Ri<space>"<C-r>0"<space>*.c<space>*.h<CR>:cope<CR><C-l>
+	autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>s :silent grep!<space>-Ri<space>""<space>*.c<space>*.h<C-l><left><left><left><left><left>
+augroup END
 
 " Terminal
 tnoremap <Esc><Esc> <C-\><C-n>
@@ -177,10 +186,7 @@ endfunction
 "==============================================================================="
 
 " C/C++ indent style
-autocmd Filetype cpp setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype hpp setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype c setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype h setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd Filetype cpp,c,h,hpp setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Matlab indent style
 autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
@@ -238,6 +244,12 @@ let g:lightline.component_expand = {
         \ 'asyncrun_status': 'lightline#asyncrun#status',
         \ }
 
+" ros-vim
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
+
 " Startify
 let g:startify_custom_header = [
 	\'	 _   _ _____ _____     _____ __  __ ',
@@ -258,8 +270,10 @@ let g:tex_flavor = 'latex'
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Documents/Wiki/src/',
-                      \ 'path_html': '~/Documents/Wiki/html/',
+		      \ 'path_html': '~/Documents/Wiki/html/',
 		      \ 'syntax': 'markdown', 'ext': '.md',}]
+
+let g:vimwiki_global_ext = 0
 
 nnoremap <silent> <space>vwt :VimwikiTable<CR>
 
@@ -267,7 +281,8 @@ nnoremap <silent> <space>vwt :VimwikiTable<CR>
 " SNIPPETS
 "==============================================================================="
 
-nnoremap <leader>post :r ~/Templates/blogPost.md<Enter>kddjj2w
+nnoremap <space>post :r ~/Templates/blogPost.md<Enter>kddjj2w
+nnoremap <space>note :r ~/Templates/Markdown/notes
 
 "==============================================================================="
 " WORKSPACE MANAGEMENT 

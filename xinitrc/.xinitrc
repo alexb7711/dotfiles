@@ -3,9 +3,9 @@
 # Startup Applications
 monitorSwapper
 setWallpaper
-compton -b 
+compton -c -l0 -t0 -r0 -o.00 -b 
 redshift &
-xbanish &
+unclutter &
 dwmblocks 2>&1 >/dev/null &
 notify-send "Welcome Back Alex!"
 brave&

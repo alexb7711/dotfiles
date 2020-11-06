@@ -4,6 +4,6 @@ configuration {
   show-icons:         true;
   icon-theme:         "Papirus";
 }
-/* @import "launchers/style_normal_grid.rasi" */
+@import "launchers/style_normal_grid.rasi"
 /* @import "launchers/style_normal_rainbow_sidebar.rasi" */
-@import "launchers/style_normal_grid_round_gruvbox.rasi"
+/* @import "launchers/style_normal_grid_round_gruvbox.rasi" */

@@ -1,6 +1,6 @@
 [user]
-	email = alex.brown7711@gmail.com
-	name = Alex Brown
+	email = alex.brown@brownhaus.xyz
+	name = Alexander Brown
 
 [alias]
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -8,20 +8,26 @@
 	lg = !"git lg1"
 
 [diff] 
-	tool = vimdiff
+	tool = nvim
 
 [merge]
-	tool = vimdiff
+	tool = nvim
 
 [mergetool]
-	prompt = true
+	prompt = false
 
-[mergetool "vimdiff"]
-	cmd = nvim -d $BASE $REMOTE
-	; cmd = nvim -d $LOCAL $REMOTE
+[difftool]
+	prompt = false
+
+[difftool "nvim"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[mergetool "nvim"]
+	; cmd = nvim -d $BASE $REMOTE
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 
 [core]
-	editor = nvim
+	editor   = nvim
 	autocrlf = input
 
 [help]

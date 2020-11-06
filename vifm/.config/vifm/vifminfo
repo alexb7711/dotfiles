@@ -54,297 +54,159 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/alex/Code/Embedded/DynamixelSDK/ros
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/network_topology_emulator
 	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
-	port_handler_arduino.cpp
-14
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	CHANGELOG.rst
 3
-d/home/alex/Code/Embedded/DynamixelSDK
-	ros
-11
-d/home/alex/Code/Embedded/DynamixelSDK/ros
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/network_topology_emulator/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/network_topology_emulator
 	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
-	port_handler_arduino.cpp
-14
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK
-	c
 3
-d/home/alex/Code/Embedded/DynamixelSDK/c
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	mv_msgs
+3
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/mv_msgs
 	..
 0
-d/home/alex/Code/Embedded/DynamixelSDK
-	c
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c
-	example
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c/example
-	dxl_monitor
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c/example/dxl_monitor
-	mac
-4
-d/home/alex/Code/Embedded/DynamixelSDK/c/example
-	dxl_monitor
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c
-	example
-2
-d/home/alex/Code/Embedded/DynamixelSDK
-	ros
-11
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
-	group_sync_read.py
-7
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	include
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
-	port_handler_linux.h
-9
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	include
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
-	dynamixel_sdk.h
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src/dynamixel_sdk
-	group_sync_read.cpp
-7
-d/home/alex/Code/Embedded/DynamixelSDK/ros/src
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	src
-2
-d/home/alex/Code/Embedded/DynamixelSDK
-	ros
-11
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	include
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include/dynamixel_sdk
-	group_bulk_write.h
-3
-d/home/alex/Code/Embedded/DynamixelSDK/ros/include
-	dynamixel_sdk
-1
-d/home/alex/Code/Embedded/DynamixelSDK/ros
-	include
-1
-d/home/alex/Code/Embedded/DynamixelSDK
-	c++
-5
-d/home/alex/Code/Embedded/DynamixelSDK/c++
-	example
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example
-	dxl_monitor
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/dxl_monitor
-	..
-0
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example
-	protocol2.0
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
-	..
-0
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example
-	protocol2.0
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
-	broadcast_ping
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
-	linux32
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux32
-	..
-0
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
-	linux64
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux64
-	Makefile
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
-	linux64
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping/linux64
-	Makefile
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/broadcast_ping
-	broadcast_ping.cpp
-7
-d/home/alex/Code/Embedded/DynamixelSDK/c++/build/arm
-	Makefile
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/build
-	arm
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++
-	example
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example
-	protocol2.0
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
-	ping
-7
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping
-	arm
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping/arm
-	libdxl_xarm64_cpp.so
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0/ping
-	arm
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol2.0
-	ping
-7
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example
-	protocol1.0
-2
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0
-	ping
-3
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping
-	arm
-1
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping/arm
-	ping
-4
-d/home/alex/Code/Embedded/DynamixelSDK/c++/example/protocol1.0/ping
-	ping.cpp
-8
-d/home/alex/Documents/Wiki/OldNotes/Controls
-	Chapter3
-3
-d/home/alex/Documents/Wiki/OldNotes
-	Controls
-1
-d/home/alex/Documents/Wiki
-	OldNotes
-2
-d/home/alex/Documents
-	temp
-8
-d/home/alex/Documents/temp
-	Chapter5
-1
-d/home/alex/Documents
-	temp
-8
-d/home/alex
-	Documents
-20
-d/home/alex/Documents
-	Wiki
-6
-d/home/alex/Documents/Wiki
-	pdf
-3
-d/home/alex/Documents/Wiki/src/diary
-	..
-0
-d/home/alex/Documents/Wiki/src
-	diary
-8
-d/home/alex/Documents/Wiki/src/diary
-	..
-0
-d/home/alex/Videos
-	2020-08-30_20-48-58.mkv
-2
-d/home/alex/Downloads
-	turtlebot_launch_rosinstall_proj3.rosinstall
-3
-d/usr/local
-	..
-0
-d/usr
-	local
-8
-d/home/alex/Videos
-	2020-08-30_20-48-58.mkv
-2
-d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/GraphSearch
-	..
-0
-d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
-	World
-3
-d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/World
-	OccupancyGrid.m
-4
-d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode/GraphSearch
-	..
-0
-d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
-	testGraphSearch.m
-4
-d/home/alex/Code/ROS/Patrol/src/low_level_control/dynamic_models
-	include
-1
-d/home/alex/Code/ROS/Patrol/src/low_level_control
-	dynamic_models
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	mv_msgs
 3
 d/home/alex/Code/ROS/Patrol/src
-	network-topolology-emulator
-4
-d/home/alex/Code/ROS/Patrol/src/network-topolology-emulator
-	network_topology_emulator
-4
+	topology_emulator
+6
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	rebroadcasters
+5
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/rebroadcasters
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	rebroadcasters
+5
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/rebroadcasters
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	mv_msgs
+3
+d/home/alex/Code/ROS/Patrol/src/topology_emulator/mv_msgs
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/topology_emulator
+	mv_msgs
+3
+d/home/alex/Code/ROS/Patrol/src
+	turtle
+7
+d/home/alex/Code/ROS/Patrol/src/turtle
+	turtlebot3
+1
+d/home/alex/Code/ROS/Patrol/src/turtle/turtlebot3
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/turtle
+	turtlebot3_sim
+2
+d/home/alex/Code/ROS/Patrol/src/turtle/turtlebot3_sim
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/turtle
+	turtlebot_msgs
+3
+d/home/alex/Code/ROS/Patrol/src/turtle/turtlebot_msgs
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/turtle
+	turtlebot_msgs
+3
+d/home/alex/Code/ROS/Patrol/src
+	high_level_control
+1
+d/home/alex/Code/ROS/Patrol/src/high_level_control
+	go2goal
+2
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	include
+1
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal/include
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	include
+1
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal/include
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	include
+1
+d/home/alex/Code/ROS/Patrol/src/high_level_control
+	go2goal
+2
+d/home/alex/Code/ROS/Patrol/src
+	high_level_control
+1
+d/home/alex/Code/ROS/Patrol/src/high_level_control
+	go2goal
+2
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/high_level_control/go2goal
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/high_level_control
+	go2goal
+2
+d/home/alex/Code/ROS/Patrol/src
+	joystick_cntrl
+2
+d/home/alex/Code/ROS/Patrol/src/joystick_cntrl
+	src
+5
+d/home/alex/Code/ROS/Patrol/src/joystick_cntrl/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/joystick_cntrl
+	src
+5
 d/home/alex/Code/ROS/Patrol/src
 	low_level_control
 3
+d/home/alex/Code/ROS/Patrol/src/low_level_control
+	occupancy_grid
+4
+d/home/alex/Code/ROS/Patrol/src/low_level_control/occupancy_grid
+	src
+5
+d/home/alex/Code/ROS/Patrol/src/low_level_control/occupancy_grid/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/low_level_control/occupancy_grid
+	src
+5
+d/home/alex/Code/ROS/Patrol/src/low_level_control
+	dynamic_models
+3
+d/home/alex/Code/ROS/Patrol/src/low_level_control/dynamic_models
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/low_level_control/dynamic_models/src
+	..
+0
+d/home/alex/Code/ROS/Patrol/src/low_level_control/dynamic_models
+	src
+2
 d/home/alex/Code/ROS/Patrol/src/low_level_control
 	controllers
 2
@@ -353,6 +215,144 @@ d/home/alex/Code/ROS/Patrol/src/low_level_control/controllers
 2
 d/home/alex/Code/ROS/Patrol/src/low_level_control/controllers/src
 	patrol_g2g.cpp
+4
+d/home/alex/Code/ROS/Patrol/src/low_level_control/controllers
+	src
+2
+d/home/alex/Code/ROS/Patrol/src/low_level_control
+	turtlebot_sim
+5
+d/home/alex/Code/ROS/Patrol/src/low_level_control/turtlebot_sim
+	src
+3
+d/home/alex/Code/ROS/Patrol/src/low_level_control/turtlebot_sim/src
+	simple_map_tf.cpp
+2
+d/home/alex/School/Fall2020/Assignments/MobileRobotics
+	HWK3
+3
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK3
+	HW3_Rotations_and_Kinematics.pdf
+1
+d/home/alex/School/Fall2020/Notes/LinearMultivariableControl/Section2
+	S02_03StabilityViaLyapunov.pdf
+1
+d/home/alex/School/Fall2020/Notes/LinearMultivariableControl
+	Section2
+2
+d/home/alex/School/Fall2020/Notes
+	LinearMultivariableControl
+1
+d/home/alex/School/Fall2020
+	Assignments
+2
+d/home/alex/School/Fall2020/Assignments
+	MobileRobotics
+2
+d/home/alex/School/Fall2020/Assignments/MobileRobotics
+	HWK3
+3
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK3
+	HW3_Rotations_and_Kinematics.pdf
+2
+d/home/alex
+	School
+29
+d/home/alex/School
+	Fall2020
+1
+d/home/alex
+	Documents
+26
+d/home/alex/Documents
+	Research
+6
+d/home/alex
+	Documents
+26
+d/home/alex/Documents
+	Research
+6
+d/home/alex/Documents/Research
+	PeerReview
+2
+d/home/alex/Documents/Research/PeerReview
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+1
+d/home/alex/Documents/Research
+	PeerReview
+2
+d/home/alex/Documents/Research/PeerReview
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+1
+d/home/alex/Documents/Research
+	FixedSitePatrolResearch
+1
+d/home/alex/Documents/Research/FixedSitePatrolResearch
+	Presentations
+4
+d/home/alex/Documents/Research/FixedSitePatrolResearch/Presentations
+	..
+0
+d/home/alex/Documents/Research/FixedSitePatrolResearch
+	Presentations
+4
+d/home/alex/Documents/Research/FixedSitePatrolResearch/Presentations
+	Auctions
+1
+d/home/alex/Documents/Research/FixedSitePatrolResearch/Presentations/Auctions
+	Auctions.pdf
+3
+d/home/alex/Documents/Research/FixedSitePatrolResearch/Presentations
+	Auctions
+1
+d/home/alex/Documents/Research/FixedSitePatrolResearch
+	20_Fixed_site_paper_Devore_Brown.pdf
+5
+d/home/alex/Documents/Research
+	PeerReview
+2
+d/home/alex/Documents/Research/PeerReview
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+1
+d/home/alex/Documents/Research
+	PeerReview
+2
+d/home/alex/Documents
+	Research
+6
+d/home/alex/Documents/Research
+	PeerReview
+2
+d/home/alex/Documents/Research/PeerReview
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+1
+d/home/alex/Documents/Research
+	FixedSitePatrolResearch
+1
+d/home/alex/Documents/Research/FixedSitePatrolResearch
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+6
+d/home/alex/Documents/Research
+	FixedSitePatrolResearch
+1
+d/home/alex/Documents/Research/FixedSitePatrolResearch
+	AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+6
+d/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK3/1.1
+	P1_1.m
+1
+d/mnt/usb
+	EPSCAN
+1
+d/mnt/usb/EPSCAN
+	001
+1
+d/mnt/usb/EPSCAN/001
+	EPSON001.PDF
+1
+d/home/alex/School/Fall2020/Assignments/LinearMultivariableControl/HWK3
+	HW3_6-8.pdf
 3
 d
 
@@ -387,6 +387,102 @@ D/
 D/lib64
 	..
 0
+D/
+	lib64
+6
+D/lib64
+	..
+0
+D/
+	lib64
+6
+D/lib64
+	aspell
+7
+D/
+	mnt
+8
+D/mnt
+	usb
+1
+D/mnt/usb
+	EPSCAN
+1
+D/mnt/usb/EPSCAN
+	001
+1
+D/mnt/usb/EPSCAN/001
+	EPSON006.PDF
+6
+D/mnt/usb
+	EPSCAN
+1
+D/mnt/usb/EPSCAN/001
+	EPSON006.PDF
+6
+D/mnt/usb/EPSCAN
+	001
+1
+D/mnt/usb
+	EPSCAN
+1
+D/mnt
+	usb
+1
+D/
+	home
+4
+D/home
+	alex
+1
+D/home/alex
+	School
+5
+D/home/alex/School
+	Fall2020
+1
+D/home/alex/School/Fall2020
+	..
+0
+D/home/alex/School
+	Fall2020
+1
+D/home/alex/School/Fall2020
+	Assignments
+1
+D/home/alex/School/Fall2020/Assignments
+	MobileRobotics
+2
+D/home/alex/School/Fall2020/Assignments/MobileRobotics
+	HWK2
+2
+D/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK2
+	HomogenousCoordinates.pdf
+4
+D/home/alex/School/Fall2020/Assignments/MobileRobotics
+	HWK2
+2
+D/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK2
+	Prob_2_2_code.zip
+4
+D/home/alex/School/Fall2020/Assignments/MobileRobotics
+	Lab
+3
+D/home/alex/School/Fall2020/Assignments
+	MobileRobotics
+2
+D/home/alex/School/Fall2020/Assignments/MobileRobotics
+	Lab
+3
+D/home/alex/School/Fall2020/Assignments/MobileRobotics/Lab
+	..
+0
+D/home/alex/School/Fall2020/Assignments/MobileRobotics
+	HWK2
+2
+D/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK2
+	HW2_Review_and_Geometric_Representation.pdf
+8
 D
 
 # Command line history (oldest to newest):
@@ -465,11 +561,17 @@ D
 :!mv ObjectManager.hpp ObjectHandler.hpp
 :!mv ObjectManager.cpp ObjectHandler.cpp
 :!mkdir temp
+:q:q
+:!mkdir HWK2
+:!cp 
+:!cd /mnt/usb/EPSCAN/001/
+:!cd ~/School/Fall2020/Notes/MobileRobotics/Section2/
+:!mkdir PeerReview
 :q
 
 # Search history (oldest to newest):
+/mn
 /patrol
-/Scho
 /components
 /state
 /flutterkkkkkkkjk
@@ -480,6 +582,14 @@ D
 /Acc
 /vim
 /pack
+/Code
+/Scho
+/mnt
+/s
+/us
+/ho
+/hom
+/Doc
 
 # Prompt history (oldest to newest):
 pGUI
@@ -495,11 +605,21 @@ p2020-04-30-The-C-Programming-Language-Notes.md
 pCITI - Collaborative Institutional Training Initiative.pdf
 pCITI-DataManagement.pdf
 plibdxl_xaarm64_cpp.so.old
+pMapParser.h
+pExponentialControlBarrierFunctionsforenforcinghighrelative-degreesafety-criticalconstraints.pdf
+pControlbarrierfunctionbasedquadraticprogramswithapplicationtoadaptivecruisecontrol.pdf
+pRobustAdaptiveControlBarrierFunctions:AnAdaptiveandData-DrivenApproachtoSafety.pdf
+pCoordinateTransforms.pdf
+pEPSON003.PDF
+pHomogenousCoordinates.pdf
+pproblem3.2.1-3.pdf
+pAReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
+pP1_1.m
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/alex/.local/share/vifm/Trash/000_2020-09-07_16-38-55.mkv
+""/home/alex/Documents/Research/PeerReview/AReliablePlannerForAutonomousDrivingInFreeSpaceEnvironment.pdf
 
 # Directory stack (oldest to newest):
 
@@ -684,6 +804,24 @@ t/home/alex/.local/share/vifm/Trash/000_GraphSearchCode
 	/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode
 t/home/alex/.local/share/vifm/Trash/000_GraphSearchCode.zip
 	/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK1/GraphSearchCode.zip
+t/home/alex/.local/share/vifm/Trash/000_Flutter
+	/home/alex/Code/Flutter
+t/home/alex/.local/share/vifm/Trash/001_GraphSearchCode
+	/home/alex/Downloads/GraphSearchCode
+t/home/alex/.local/share/vifm/Trash/000_GraphSearchCode_Solution
+	/home/alex/Downloads/GraphSearchCode_Solution
+t/home/alex/.local/share/vifm/Trash/001_GraphSearchCode.zip
+	/home/alex/Downloads/GraphSearchCode.zip
+t/home/alex/.local/share/vifm/Trash/000_Homework_01 Solutions.zip
+	/home/alex/Downloads/Homework_01 Solutions.zip
+t/home/alex/.local/share/vifm/Trash/000_Homework_01_Discrete_Planning.pdf
+	/home/alex/Downloads/Homework_01_Discrete_Planning.pdf
+t/home/alex/.local/share/vifm/Trash/000_Homework__1___Discrete_Planning_export.zip
+	/home/alex/Downloads/Homework__1___Discrete_Planning_export.zip
+t/home/alex/.local/share/vifm/Trash/000_EPSON005.PDF
+	/home/alex/Downloads/EPSON005.PDF
+t/home/alex/.local/share/vifm/Trash/000_HW2_Review_and_Geometric_Representation (1).pdf
+	/home/alex/Downloads/HW2_Review_and_Geometric_Representation (1).pdf
 
 # State:
 f

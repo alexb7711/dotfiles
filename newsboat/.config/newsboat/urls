@@ -3,6 +3,11 @@
 https://www.archlinux.org/feeds/news/ "arch" # Arch Linux News
 https://www.archlinux.org/feeds/planet/ "arch" # Arch Linux Planet
 https://lukesmith.xyz/rss.xml "linux" # Luke Smith Blog
+https://github.com/neovim/neovim/tags.atom "neovim" # Neovim
+
+""
+"--- TWITCH ---"
+https://twitchrss.appspot.com/vod/northernlion "twitch" # Nothernlion
 
 "" 
 "--- YT TECH ---"
@@ -16,6 +21,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "yt
 
 ""
 "--- YOUTUBE ---"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCj74rJ9Lgl3WTngq675wxKg "yt" # Noodle
 https://www.youtube.com/feeds/videos.xml?channel_id=UC3tNpTOHsTnkmbwztCs30sA "yt" # Northerlion
 https://www.youtube.com/feeds/videos.xml?channel_id=UCafEZMU5s8geb9oIly6xTrg "yt" # R.C. Waldun
 https://www.youtube.com/feeds/videos.xml?channel_id=UC5-WodiZoVSBmMpZ8QLjN2g "yt" # The Cantina

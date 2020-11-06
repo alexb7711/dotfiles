@@ -67,8 +67,8 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats "(%b)"
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100
+SAVEHIST=100
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -87,7 +87,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Edit line in vim with ctrl-e:
+# # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
@@ -100,4 +100,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # ROS Environment Variables
 source /opt/ros/melodic/setup.zsh
-ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/Code/ROS/catkin/src:$HOME/Code/ROS/Patrol/src

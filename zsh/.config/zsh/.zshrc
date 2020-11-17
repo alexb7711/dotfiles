@@ -13,6 +13,9 @@
 # Auto CD
 setopt autocd 
 
+# Configure Display
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
 # VI Mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -98,5 +101,3 @@ bindkey '^e' edit-command-line
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# ROS Environment Variables
-source /opt/ros/melodic/setup.zsh

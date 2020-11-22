@@ -24,7 +24,8 @@ export GPG_TTY
 # CURSOR
 #===============================================================================#
 # Change cursor shape for different VI modes.
-function zle-keymap-select {
+function zle-keymap-select 
+{
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
     echo -ne '\e[1 q'
@@ -35,11 +36,15 @@ function zle-keymap-select {
     echo -ne '\e[5 q'
   fi
 }
+
 zle -N zle-keymap-select
-zle-line-init() {
+
+zle-line-init() 
+{
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
+
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
@@ -50,13 +55,16 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
+[ -f "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
 
 #===============================================================================#
 # PROMPT
 #===============================================================================#
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="$fg[green]%B[%@ ]%b : %U$fg[cyan]%d%u$fg[white]
+PS1="$fg[green]%B[%@ ]%b : %U$fg[cyan]${HOST}@%d%u$fg[white]
+%d%u$fg[white]
 └─ "
 
 autoload -Uz vcs_info

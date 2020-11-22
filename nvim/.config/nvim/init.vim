@@ -44,14 +44,16 @@ call plug#begin()
 	Plug 'shinchu/lightline-gruvbox.vim'
 
 	" LSP & Auto Complete
-	Plug 'neovim/nvim-lsp'
+	Plug 'neovim/nvim-lspconfig'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	" Plug 'alexb7711/deoplete-lsp'
 	Plug 'Shougo/deoplete-lsp'
 	Plug 'taketwo/vim-ros'
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
 	Plug 'godlygeek/tabular'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'skywind3000/asyncrun.vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-scripts/c.vim'
@@ -85,18 +87,22 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 
+" Reload Document when window gains focus
+autocmd FocusGained,BufEnter * :silent! !
+
 " Save Sessions
 autocmd BufWrite *.cpp,*.c,*.h,*.hpp,*.py :mksession! .vs
     
 " Sets numbering style on the left hand side
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set number
-:augroup END
+set number relativenumber
+autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 
 " Spell Check
 autocmd BufRead,BufNewFile *.md,*.markdown,*.tex setlocal spell
+
+" Enable XML Syntax Highlighting
+autocmd BufRead,BufNewFile *.launch set syntax=xml
 
 "==============================================================================="
 " COLORS
@@ -124,8 +130,8 @@ set colorcolumn=81
 "==============================================================================="
 
 " Auto Complete Hotkeys
-autocmd Filetype c,cpp,hpp,h inoremap <buffer> <C-j> <C-n>
-autocmd Filetype c,cpp,hpp,h inoremap <buffer> <C-k> <C-p>
+autocmd Filetype * inoremap <buffer> <C-j> <C-n>
+autocmd Filetype * inoremap <buffer> <C-k> <C-p>
 
 " inoremap <buffer> <C-j> <C-n>
 " inoremap <buffer> <C-k> <C-p>
@@ -207,11 +213,11 @@ let g:NERDToggleCheckAllLines = 1
 
 " Nvim LSP 
 lua << END
-require'nvim_lsp'.bashls.setup{}
-require'nvim_lsp'.clangd.setup{}
-require'nvim_lsp'.pyls.setup{}
-require'nvim_lsp'.texlab.setup{}
-require'nvim_lsp'.vimls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyls.setup{}
+require'lspconfig'.texlab.setup{}
+require'lspconfig'.vimls.setup{}
 END
 
 nnoremap <silent> gd        <cmd>lua vim.lsp.buf.declaration()<CR>

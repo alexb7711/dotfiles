@@ -7,8 +7,8 @@ compton -c -l0 -t0 -r0 -o.00 -b
 redshift &
 unclutter &
 dwmblocks 2>&1 >/dev/null &
-notify-send "Welcome Back Alex!"
-brave&
+# notify-send "Welcome Back Alex!"
+# brave&
 
 # relaunch DWM if the binary changes, otherwise bail
 csum=$(sha1sum $(which dwm))

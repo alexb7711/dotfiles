@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/alex/Code/ROS/UTASim/src/high_level_control/routecreator/msg'
 let g:netrw_dirhist_2='/home/alex/Code/OpenSource/deoplete-lsp/lua'
 let g:netrw_dirhist_1='/home/alex/Code/OpenSource/deoplete-lsp'
 let g:netrw_dirhist_0='/home/alex/Code/Scripts'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/home/alex/Code/ROS/lab9/src/dummy_planner/src'
 let g:netrw_dirhist_6='/home/alex/Code/ROS/lab9/src/dummy_planner/launch'
 let g:netrw_dirhist_5='/home/alex/School/Fall2020/Assignments/LinearMultivariableControl/HWK6/invertedPendulumVelocity/Dynamics'
 let g:netrw_dirhist_4='/home/alex/Code/Research/PythonAuctioning'
-let g:netrw_dirhist_3='/home/alex/Code/ROS/lab8/src/dummy_planner/src'

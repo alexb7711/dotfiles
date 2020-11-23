@@ -46,8 +46,8 @@ call plug#begin()
 	" LSP & Auto Complete
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	" Plug 'alexb7711/deoplete-lsp'
-	Plug 'Shougo/deoplete-lsp'
+	Plug 'alexb7711/deoplete-lsp'
+	"Plug 'Shougo/deoplete-lsp'
 	Plug 'taketwo/vim-ros'
 
 	" Utility
@@ -64,6 +64,7 @@ call plug#begin()
 	Plug 'vifm/vifm.vim'
 
 	" Syntax
+	Plug 'aklt/plantuml-syntax'
 	Plug 'lervag/vimtex'
 	Plug 'scrooloose/nerdcommenter'
 
@@ -75,10 +76,12 @@ call plug#end()
 
 " Autocompile
 autocmd BufWrite *.md,*.markdown,*.tex :exec 'AsyncRun compile %:p'
+autocmd BufWrite *.puml :exec 'AsyncRun compile %:p'
 
 " Auto Correct Spelling
 autocmd BufEnter,FocusGained,InsertLeave *.md,*.markdown,*.tex nnoremap <silent> <space><space> ms[s1z=`s
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
+autocmd BufEnter,FocusGained,InsertLeave *.puml nnoremap <silent> <space><space> :split<CR>:e %:r.utxt<CR>
 
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap

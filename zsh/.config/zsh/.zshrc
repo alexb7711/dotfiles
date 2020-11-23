@@ -13,9 +13,6 @@
 # Auto CD
 setopt autocd 
 
-# Configure Display
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-
 # VI Mode
 bindkey -v
 export KEYTIMEOUT=1

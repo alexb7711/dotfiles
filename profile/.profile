@@ -2,7 +2,9 @@
 
 # Add to PATH
 export PATH="$PATH:/opt/flutter/bin"
-export PATH="$PATH:$HOME/Code/Scripts/"
+
+[ -d "$HOME/Code/Scripts/" ] && export PATH="$PATH:$HOME/Code/Scripts"
+[ -d "$HOME/Code/scripts/" ] && export PATH="$PATH:$HOME/Code/scripts"
 
 # Default Programs
 export EDITOR="nvim"

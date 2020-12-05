@@ -46,9 +46,11 @@ call plug#begin()
 
 	" LSP & Auto Complete
 	"Plug 'Shougo/deoplete-lsp'
+	if has('nvim-0.5')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'alexb7711/deoplete-lsp'
 	Plug 'neovim/nvim-lspconfig'
+	endif
 	Plug 'taketwo/vim-ros'
 
 	" Utility
@@ -222,6 +224,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDToggleCheckAllLines = 1
 
 " Nvim LSP 
+if has('nvim-0.5')
 lua << END
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}
@@ -229,6 +232,7 @@ require'lspconfig'.pyls.setup{}
 require'lspconfig'.texlab.setup{}
 require'lspconfig'.vimls.setup{}
 END
+endif
 
 nnoremap <silent> gd        <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <c-]>     <cmd>lua vim.lsp.buf.definition()<CR>

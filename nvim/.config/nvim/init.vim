@@ -37,6 +37,7 @@ set wildmenu
 call plug#begin()
 
 	" Aesthetics
+	Plug 'Yggdroot/indentLine'
 	Plug 'albertomontesg/lightline-asyncrun'
 	Plug 'itchyny/lightline.vim'
 	Plug 'mhinz/vim-startify'
@@ -44,24 +45,24 @@ call plug#begin()
 	Plug 'shinchu/lightline-gruvbox.vim'
 
 	" LSP & Auto Complete
-	Plug 'neovim/nvim-lspconfig'
+	"Plug 'Shougo/deoplete-lsp'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'alexb7711/deoplete-lsp'
-	"Plug 'Shougo/deoplete-lsp'
+	Plug 'neovim/nvim-lspconfig'
 	Plug 'taketwo/vim-ros'
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
+	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 	Plug 'godlygeek/tabular'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'skywind3000/asyncrun.vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-scripts/c.vim'
-	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 	
 	" File Management
-	Plug 'vimwiki/vimwiki'
 	Plug 'vifm/vifm.vim'
+	Plug 'vimwiki/vimwiki'
 
 	" Syntax
 	Plug 'aklt/plantuml-syntax'
@@ -194,8 +195,11 @@ endfunction
 " INDENTATION "
 "==============================================================================="
 
-" C/C++ indent style
-autocmd Filetype cpp,c,h,hpp setlocal expandtab shiftwidth=2 softtabstop=2
+" C/C++ and YAML indent style
+autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=2 softtabstop=2
+
+" C/C++, YAML, XML indent style
+autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Matlab indent style
 autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
@@ -205,6 +209,9 @@ autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
 "==============================================================================="
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" IndentLine
+let g:indentLine_char = '¦'
 
 " Matlab
 " Open Split in Vim

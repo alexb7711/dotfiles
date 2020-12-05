@@ -65,7 +65,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="$fg[green]%B[%@ ]%b : %U$fg[cyan]${HOST}@%d%u$fg[white]
-%d%u$fg[white]
 └─ "
 
 autoload -Uz vcs_info

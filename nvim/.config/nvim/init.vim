@@ -45,10 +45,10 @@ call plug#begin()
 	Plug 'shinchu/lightline-gruvbox.vim'
 
 	" LSP & Auto Complete
-	"Plug 'Shougo/deoplete-lsp'
 	if has('nvim-0.5')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'alexb7711/deoplete-lsp'
+	Plug 'Shougo/deoplete-lsp'
+	" Plug 'alexb7711/deoplete-lsp'
 	Plug 'neovim/nvim-lspconfig'
 	endif
 	Plug 'taketwo/vim-ros'
@@ -58,6 +58,7 @@ call plug#begin()
 	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 	Plug 'godlygeek/tabular'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 	Plug 'skywind3000/asyncrun.vim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-scripts/c.vim'
@@ -77,14 +78,20 @@ call plug#end()
 " AUTO COMMANDS
 "==============================================================================="
 
+" Auto Complete Hotkeys
+autocmd Filetype * inoremap <buffer> <C-j> <C-n>
+autocmd Filetype * inoremap <buffer> <C-k> <C-p>
+
 " Autocompile
 autocmd BufWrite *.md,*.markdown,*.tex :exec 'AsyncRun compile %:p'
 autocmd BufWrite *.puml :exec 'AsyncRun compile %:p'
 
 " Auto Correct Spelling
 autocmd BufEnter,FocusGained,InsertLeave *.md,*.markdown,*.tex nnoremap <silent> <space><space> ms[s1z=`s
-autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
-autocmd BufEnter,FocusGained,InsertLeave *.puml nnoremap <silent> <space><space> :split<CR>:e %:r.utxt<CR>
+autocmd BufEnter,FocusGained,InsertLeave *.puml nnoremap <silent> <space><space> :vsplit<CR>:e %:r.utxt<CR>
+
+" Auto Save When Leaving Buffer
+au BufLeave * silent! wall
 
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
@@ -93,11 +100,20 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 
+" Open Complimenting C/H File
+autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
+
 " Reload Document when window gains focus
 autocmd FocusGained,BufEnter * :silent! !
 
 " Save Sessions
 autocmd BufWrite *.cpp,*.c,*.h,*.hpp,*.py :mksession! .vs
+
+" Searching
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>w yiw:silent<space>grep!<space>-Ri<space>"<C-r>0"<space>*.c<space>*.h<CR>:cope<CR><C-l>
+autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>s :silent grep!<space>-Ri<space>""<space>*.c<space>*.h<C-l><left><left><left><left><left>
+autocmd FileType py nnoremap <buffer> <space>w yiw:silent<space>grep!<space>-Ri<space>"<C-r>0"<space>*.py<CR>:cope<CR><C-l>
+autocmd FileType py nnoremap <buffer> <space>s :silent grep!<space>-Ri<space>""<space>*.py<C-l><left><left><left>
     
 " Sets numbering style on the left hand side
 set number relativenumber
@@ -134,14 +150,6 @@ set colorcolumn=81
 "==============================================================================="
 " COMMANDS
 "==============================================================================="
-
-" Auto Complete Hotkeys
-autocmd Filetype * inoremap <buffer> <C-j> <C-n>
-autocmd Filetype * inoremap <buffer> <C-k> <C-p>
-
-" inoremap <buffer> <C-j> <C-n>
-" inoremap <buffer> <C-k> <C-p>
-
 " Ctags
 command! MakeTags !ctags -R .
 
@@ -159,15 +167,15 @@ vnoremap <space>P "+P
 " Open current pdf in zathura
 nnoremap <silent> <space>z :!zathura %:r.pdf&<CR>
 
+" Reload Syntax
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
+
 " Reload Vim
 nnoremap <space>rv :source ~/.config/nvim/init.vim<CR>
 
-" Searching
-augroup search
-	autocmd!
-	autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>w yiw:silent<space>grep!<space>-Ri<space>"<C-r>0"<space>*.c<space>*.h<CR>:cope<CR><C-l>
-	autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>s :silent grep!<space>-Ri<space>""<space>*.c<space>*.h<C-l><left><left><left><left><left>
-augroup END
+" Search and Replace
+command! -nargs=* SAR call SearchAndReplace(<f-args>)
 
 " Terminal
 tnoremap <Esc><Esc> <C-\><C-n>
@@ -191,6 +199,13 @@ function! OpenOther()
   elseif expand("%:e") == "h"
     :e %:r.c
   endif
+endfunction
+
+" Project Search and Replace
+function! SearchAndReplace(search,replace)
+	silent execute "grep! -R " . a:search . " ."
+	copen
+	execute 'cfdo! %s/' . a:search . '/'. a:replace . '/gc' 
 endfunction
 
 "==============================================================================="
@@ -300,9 +315,8 @@ nnoremap <silent> <space>vwt :VimwikiTable<CR>
 "==============================================================================="
 " SNIPPETS
 "==============================================================================="
-
-nnoremap <space>post :r ~/Templates/blogPost.md<Enter>kddjj2w
-nnoremap <space>note :r ~/Templates/Markdown/notes
+nnoremap <space>;post :r ~/Templates/blogPost.md<Enter>kddjj2w
+nnoremap <space>;note :r ~/Templates/Markdown/notes
 
 "==============================================================================="
 " WORKSPACE MANAGEMENT 

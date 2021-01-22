@@ -1,15 +1,18 @@
 #!/bin/sh
 
+[ ! -z $(command -v trash-put) ] && alias rm="trash-put"
+
 alias aliasrc="nvim $HOME/.config/aliasrc"
-alias cm="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python -DPYTHON_INCLUDE_DIR=/usr/include/python3.9"
+alias cm="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python -DPYTHON_INCLUDE_DIR=/usr/include/python"
 alias g="git"
 alias gc="gcalcli --config-folder ~/.config/gcalcli/"
 alias gdb="gdb -tui"
 alias haros="haros --config ~/.config/haros/config.yaml --home ~/.config/haros/haros/"
+alias ls="ls --color=auto"
 alias mail="neomutt"
 alias nb="newsboat"
 alias pm="pulsemixer"
-[ ! -z $(command -v trash-put) ] && alias rm="trash-put"
+alias rl="roslaunch"
 alias sp="source $HOME/.profile"
 alias spot="ncspot"
 alias sz="source $HOME/.config/zsh/.zshrc"

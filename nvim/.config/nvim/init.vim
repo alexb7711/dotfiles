@@ -313,6 +313,20 @@ let g:vimwiki_global_ext = 0
 nnoremap <silent> <space>vwt :VimwikiTable<CR>
 
 "==============================================================================="
+" SKELETON
+"==============================================================================="
+
+" Markdown Notes
+autocmd BufNewFile *.md r ~/Templates/Markdown/skeleton_notes
+
+" Markdown Slides
+autocmd BufNewFile *.markdown r ~/Templates/Markdown/skeleton_slides
+
+" Python
+autocmd BufNewFile *.py r ~/Templates/Python/skeleton
+
+
+"==============================================================================="
 " SNIPPETS
 "==============================================================================="
 nnoremap <space>;post :r ~/Templates/blogPost.md<Enter>kddjj2w

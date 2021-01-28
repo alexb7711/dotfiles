@@ -55,7 +55,7 @@ call plug#begin()
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
-	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
+	Plug 'yinflying/matlab.vim'
 	Plug 'godlygeek/tabular'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -219,7 +219,8 @@ autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Matlab indent style
-autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
+autocmd BufEnter *.m compiler mlint
+" autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
 
 "==============================================================================="
 " PLUGGINS 
@@ -231,8 +232,6 @@ let g:deoplete#enable_at_startup = 1
 let g:indentLine_char = '¦'
 
 " Matlab
-" Open Split in Vim
-let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
 
 " Nerd Commentor Settings
 let g:NERDSpaceDelims = 1

@@ -54,9 +54,6 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/alex/Code/ROS/Patrol/src/topology_emulator/network_topology_emulator
-	src
-3
 d/home/alex/Code/ROS/Patrol/src/topology_emulator/network_topology_emulator/src
 	..
 0
@@ -354,6 +351,9 @@ d/mnt/usb/EPSCAN/001
 d/home/alex/School/Fall2020/Assignments/LinearMultivariableControl/HWK3
 	HW3_6-8.pdf
 3
+d/home/alex/Code/MATLAB/HWK2
+	HW22.m
+1
 d
 
 # Right window history (oldest to newest):
@@ -483,6 +483,9 @@ D/home/alex/School/Fall2020/Assignments/MobileRobotics
 D/home/alex/School/Fall2020/Assignments/MobileRobotics/HWK2
 	HW2_Review_and_Geometric_Representation.pdf
 8
+D/home/alex
+	
+0
 D
 
 # Command line history (oldest to newest):
@@ -568,6 +571,9 @@ D
 :!cd ~/School/Fall2020/Notes/MobileRobotics/Section2/
 :!mkdir PeerReview
 :q
+:!mv HW22.m HW22Euler.m
+:!mv HW22Euler.m HW22Exact.m
+:!mv HW22Exact.m HW22.m
 
 # Search history (oldest to newest):
 /mn

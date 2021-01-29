@@ -1,4 +1,10 @@
-.zcompdump
+# nvim
 nvim/.config/nvim/plugged
 nvim/.config/nvim/.netrwhist
+
+# vifm
+vifm/.config/vifm/vifminfo.json
+
+# ZSH
+.zcompdump
 zsh/.config/zsh/.zcompdump

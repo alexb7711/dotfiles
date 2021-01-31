@@ -232,7 +232,6 @@ set shortmess+=c
 set completeopt=menuone,noinsert,noselect
 
 " Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -247,6 +246,9 @@ let g:NERDToggleCheckAllLines = 1
 
 " Nvim LSP 
 if has('nvim-0.5')
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
 lua << EOF
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}

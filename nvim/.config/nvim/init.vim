@@ -75,8 +75,6 @@ call plug#end()
 "==============================================================================="
 " AUTO COMMANDS
 "==============================================================================="
-" Auto Complete Hotkeys
-
 " Autocompile
 autocmd BufWrite *.md,*.markdown,*.tex :exec 'AsyncRun compile %:p'
 autocmd BufWrite *.puml :exec 'AsyncRun compile %:p'
@@ -86,7 +84,11 @@ autocmd BufEnter,FocusGained,InsertLeave *.md,*.markdown,*.tex nnoremap <silent>
 autocmd BufEnter,FocusGained,InsertLeave *.puml nnoremap <silent> <space><space> :vsplit<CR>:e %:r.utxt<CR>
 
 " Auto Save When Leaving Buffer
-au BufLeave * silent! wall
+autocmd BufLeave * silent! wall
+
+" Cursorline
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
 
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
@@ -132,8 +134,8 @@ colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
 " Cursor Line
-"set cursorline
-"highlight CursorLine ctermbg=DarkGrey cterm=none
+set cursorline
+highlight CursorLine ctermbg=DarkGrey cterm=none
 
 " Toggle Search Highlighting
 set hlsearch!
@@ -161,6 +163,9 @@ vnoremap <space>P "+P
 
 " Open current pdf in zathura
 nnoremap <silent> <space>z :!zathura %:r.pdf&<CR>
+
+" Redraw
+nnoremap <F10> <C-l>
 
 " Reload Syntax
 noremap <F12> <Esc>:syntax sync fromstart<CR>

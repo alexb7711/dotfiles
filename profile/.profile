@@ -7,9 +7,10 @@ export PATH="$PATH:/opt/flutter/bin"
 [ -d "$HOME/Code/scripts/" ] && export PATH="$PATH:$HOME/Code/scripts"
 
 # Default Programs
+export BROWSER="brave"
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="brave"
+export VIFMRC="~/.config/vifm/vifmrc"
 
 # ~/ Clean Up
 export ANDROID_SDK_HOME="$HOME/.config/android"

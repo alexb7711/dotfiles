@@ -15,17 +15,30 @@ autocmd!
 
 set nocompatible 
 filetype plugin on
-filetype plugin indent on
 syntax on
 
+" Commenting
+set formatoptions+=j
+
+" Folding
+set foldcolumn=auto
+
 " Indenting
+filetype plugin indent on
 set autoindent
+set smarttab
 
 "Enable Mouse support
 set mouse=a
 
+" Lazy Redraw
+set lazyredraw
+
 " Show commands 
 set showcmd
+
+" Suffixes (gf)
+set suffixesadd=.c,.cpp,.h,.hpp,.m,.markdown,.md,.py
 
 " Highlight connecting brackets
 set showmatch
@@ -33,6 +46,7 @@ set showmatch
 " Searching
 set path+=**
 set wildmenu
+set ignorecase smartcase
 
 call plug#begin()
 
@@ -53,7 +67,7 @@ call plug#begin()
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
-	Plug 'yinflying/matlab.vim'
+	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 	Plug 'godlygeek/tabular'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -102,7 +116,7 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><spa
 autocmd FocusGained,BufEnter * :silent! !
 
 " Save Sessions
-autocmd BufWrite *.cpp,*.c,*.h,*.hpp,*.py :mksession! .vs
+autocmd BufWrite *.cpp,*.c,*.h,*.hpp,*.py,*.m :mksession! .vs
 
 " Searching
 autocmd FileType c,cpp,h,hpp nnoremap <buffer> <space>w yiw:silent<space>grep!<space>-Ri<space>"<C-r>0"<space>*.c<space>*.h<CR>:cope<CR><C-l>
@@ -132,8 +146,8 @@ colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
 " Cursor Line
-"set cursorline
-"highlight CursorLine ctermbg=DarkGrey cterm=none
+set cursorline
+highlight CursorLine ctermbg=DarkGrey cterm=none
 
 " Toggle Search Highlighting
 set hlsearch!
@@ -159,15 +173,25 @@ nnoremap <space>P "+P
 vnoremap <space>p "+p
 vnoremap <space>P "+P
 
+" Delete without saving to register
+nnoremap s "_d 
+
 " Open current pdf in zathura
 nnoremap <silent> <space>z :!zathura %:r.pdf&<CR>
+
+" Open Vimrc
+command! Vimrc :vs $MYVIMRC
 
 " Reload Syntax
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 " Reload Vim
-nnoremap <space>rv :source ~/.config/nvim/init.vim<CR>
+nnoremap <space>rv :source $MYVIMRC <CR>
+" nnoremap <space>rv :source ~/.config/nvim/init.vim<CR>
+
+" Rerun Macro
+nnoremap Q @@
 
 " Search and Replace
 command! -nargs=* SAR call SearchAndReplace(<f-args>)
@@ -213,8 +237,6 @@ autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=2 softtabstop=2
 " C/C++, YAML, XML indent style
 autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
 
-" Matlab indent style
-autocmd BufEnter *.m compiler mlint
 " autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
 
 "==============================================================================="
@@ -411,5 +433,5 @@ nnoremap <space>tc :tabclose<CR>
 nnoremap <space>td :let @" = expand("%")<CR>:tabe<CR>:e <C-r>"<CR>
 
 " Change Tabs
-nnoremap <C-h> gT
-nnoremap <C-l> gt 
+autocmd BufEnter * nnoremap <C-h> gT
+autocmd BufEnter * nnoremap <C-l> gt 

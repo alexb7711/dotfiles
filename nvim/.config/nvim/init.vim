@@ -89,8 +89,6 @@ call plug#end()
 "==============================================================================="
 " AUTO COMMANDS
 "==============================================================================="
-" Auto Complete Hotkeys
-
 " Autocompile
 autocmd BufWrite *.md,*.markdown,*.tex :exec 'AsyncRun compile %:p'
 autocmd BufWrite *.puml :exec 'AsyncRun compile %:p'
@@ -100,7 +98,11 @@ autocmd BufEnter,FocusGained,InsertLeave *.md,*.markdown,*.tex nnoremap <silent>
 autocmd BufEnter,FocusGained,InsertLeave *.puml nnoremap <silent> <space><space> :vsplit<CR>:e %:r.utxt<CR>
 
 " Auto Save When Leaving Buffer
-au BufLeave * silent! wall
+autocmd BufLeave * silent! wall
+
+" Cursorline
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
 
 " Disable Word Wrap
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
@@ -182,6 +184,9 @@ nnoremap <silent> <space>z :!zathura %:r.pdf&<CR>
 " Open Vimrc
 command! Vimrc :vs $MYVIMRC
 
+" Redraw
+nnoremap <F10> <C-l>
+
 " Reload Syntax
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
@@ -254,7 +259,6 @@ set shortmess+=c
 set completeopt=menuone,noinsert,noselect
 
 " Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -269,6 +273,9 @@ let g:NERDToggleCheckAllLines = 1
 
 " Nvim LSP 
 if has('nvim-0.5')
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
 lua << EOF
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}

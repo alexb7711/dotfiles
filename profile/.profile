@@ -9,6 +9,7 @@ export PATH="$PATH:/opt/flutter/bin"
 # Default Programs
 export BROWSER="brave"
 export EDITOR="nvim"
+export MANPAGER="nvim -c 'set ft=man' -"
 export TERMINAL="st"
 export VIFMRC="~/.config/vifm/vifmrc"
 

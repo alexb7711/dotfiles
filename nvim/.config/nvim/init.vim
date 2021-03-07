@@ -57,13 +57,15 @@ call plug#begin()
 	Plug 'mhinz/vim-startify'
 	Plug 'morhetz/gruvbox'
 	Plug 'shinchu/lightline-gruvbox.vim'
+	Plug 'zmughal/vim-matlab-fold'
 
 	" LSP & Auto Complete
 	if has('nvim-0.5')
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/completion-nvim'
+		Plug 'neovim/nvim-lspconfig'
+		Plug 'nvim-lua/completion-nvim'
 	endif
-	Plug 'taketwo/vim-ros'
+	
+	Plug 'lifepillar/vim-mucomplete'
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
@@ -72,6 +74,7 @@ call plug#begin()
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'skywind3000/asyncrun.vim'
+	Plug 'taketwo/vim-ros'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-scripts/c.vim'
 	
@@ -111,8 +114,18 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 
+" Folding
+autocmd BufReadPre  * setlocal foldmethod=indent
+autocmd BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+
 " Open Complimenting C/H File
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
+
+" Read Only Preview
+"" PDF
+autocmd BufReadPre *.pdf silent set ro
+" autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" - | fmt -w78
+autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk -layout -q -eol unix "%" -
 
 " Reload Document when window gains focus
 autocmd FocusGained,BufEnter * :silent! !
@@ -247,7 +260,6 @@ autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 sof
 "==============================================================================="
 " PLUGGINS 
 "==============================================================================="
-" Deoplete
 
 " Auto swap completion sources
 let g:completion_auto_change_source = 1
@@ -257,12 +269,7 @@ set shortmess+=c
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
-
-" Use completion-nvim in every buffer
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+let g:mucomplete#enable_auto_at_startup = 1
 
 " IndentLine
 let g:indentLine_char = '¦'
@@ -274,6 +281,7 @@ let g:NERDToggleCheckAllLines = 1
 " Nvim LSP 
 if has('nvim-0.5')
 
+" Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 
 lua << EOF

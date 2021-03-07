@@ -1,3 +1,4 @@
+"===== READING ====="
 ""
 "--- LINUX ---"
 https://www.archlinux.org/feeds/news/ "arch" # Arch Linux News
@@ -6,9 +7,19 @@ https://lukesmith.xyz/rss.xml "linux" # Luke Smith Blog
 https://github.com/neovim/neovim/tags.atom "neovim" # Neovim
 
 ""
+"--- SUCKLESS ---"
+https://git.suckless.org/st/atom.xml "suckless" 
+https://git.suckless.org/dwm/atom.xml "suckless" 
+https://git.suckless.org/tabbed/atom.xml "suckless" 
+https://github.com/torrinfail/dwmblocks/commits/96cbb453e5373c05372fd4bf3faacfa53e409067.atom "suckless"
+
+""
+"===== VIDEOS ====="
+""
 "--- TWITCH ---"
 https://twitchrss.appspot.com/vod/northernlion "twitch" # Nothernlion
-https://twitchrss.appspot.com/vod/sorcererdave "twitch" # Nothernlion
+https://twitchrss.appspot.com/vod/sorcererdave "twitch" # SorcererDave
+https://twitchrss.appspot.com/vod/timthetatman "twitch" # TimTheTatMan
 
 ""
 "--- VIM ---"
@@ -36,11 +47,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt
 https://videos.lukesmith.xyz/feeds/videos.xml?videoChannelId=2		     "pt-tech" # Luke Smith PeerTube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCbZ8wD6pmGb9qHqvx9M4YBw "yt-tech" # TheFrugalComputerGuy
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "yt-tech" # Wolfgang's Channel
-
-""
-"--- YOUTUBE PLAYLISTS---"
-https://www.youtube.com/feeds/videos.xml?playlist_id=PL1bauNEiHIgzMbjaWXLyTrdE8ynksVj3f
-https://www.youtube.com/feeds/videos.xml?playlist_id=PL0VJ_-KbXC0psuelC_-y4DTOvVnVRNKDe
 
 ""
 "--- YOUTUBE MUSIC ---"

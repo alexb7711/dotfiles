@@ -20,9 +20,6 @@ syntax on
 " Commenting
 set formatoptions+=j
 
-" Folding
-set foldcolumn=auto
-
 " Indenting
 filetype plugin indent on
 set autoindent
@@ -57,7 +54,6 @@ call plug#begin()
 	Plug 'mhinz/vim-startify'
 	Plug 'morhetz/gruvbox'
 	Plug 'shinchu/lightline-gruvbox.vim'
-	Plug 'zmughal/vim-matlab-fold'
 
 	" LSP & Auto Complete
 	if has('nvim-0.5')
@@ -69,7 +65,6 @@ call plug#begin()
 
 	" Utility
 	Plug 'airblade/vim-gitgutter'
-	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
 	Plug 'godlygeek/tabular'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -77,6 +72,10 @@ call plug#begin()
 	Plug 'taketwo/vim-ros'
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-scripts/c.vim'
+	
+	"" MATLAB
+	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
+	Plug 'vim-scripts/MatlabFilesEdition'
 	
 	" File Management
 	Plug 'vifm/vifm.vim'
@@ -113,10 +112,6 @@ autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c,*.h,*.hpp,*.vim set nowrap
 " Compile Hotkey
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
 autocmd Filetype python nnoremap <buffer> <F9> :update<bar>!python %<CR>
-
-" Folding
-autocmd BufReadPre  * setlocal foldmethod=indent
-autocmd BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 
 " Open Complimenting C/H File
 autocmd BufEnter,FocusGained,InsertLeave *.cpp,*.c nnoremap <silent> <space><space> :call OpenOther()<CR>
@@ -252,10 +247,11 @@ endfunction
 " C/C++ and YAML indent style
 autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
-" C/C++, YAML, XML indent style
-autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
+" MATLAB
+autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=1 softtabstop=1
 
-" autocmd Filetype matlab setlocal shiftwidth=4 tabstop=4
+" ROS Launch Files
+autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
 
 "==============================================================================="
 " PLUGGINS 

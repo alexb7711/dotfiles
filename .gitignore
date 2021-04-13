@@ -1,3 +1,6 @@
+# ncspot 
+ncspot/.config/ncspot/userstate.toml
+
 # nvim
 nvim/.config/nvim/plugged
 nvim/.config/nvim/.netrwhist
@@ -8,3 +11,6 @@ vifm/.config/vifm/vifminfo.json
 # ZSH
 .zcompdump
 zsh/.config/zsh/.zcompdump
+
+# Zathura
+zathura/.config/zathura/zathurarc.backup

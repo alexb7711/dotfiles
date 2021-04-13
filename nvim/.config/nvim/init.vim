@@ -75,7 +75,7 @@ call plug#begin()
 	
 	"" MATLAB
 	Plug 'daeyun/vim-matlab', { 'do': ':UpdateRemotePlugins' }
-	Plug 'vim-scripts/MatlabFilesEdition'
+	" Plug 'vim-scripts/MatlabFilesEdition'
 	
 	" File Management
 	Plug 'vifm/vifm.vim'
@@ -248,7 +248,7 @@ endfunction
 autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 " MATLAB
-autocmd Filetype cpp,c,h,hpp,yaml setlocal expandtab shiftwidth=1 softtabstop=1
+autocmd BufEnter,BufNewFile,BufRead *.m setlocal expandtab shiftwidth=4 softtabstop=4
 
 " ROS Launch Files
 autocmd BufEnter,BufNewFile,BufRead *.launch setlocal expandtab shiftwidth=2 softtabstop=2
@@ -386,7 +386,7 @@ nnoremap <space>ft :TabVifm<CR>
 let g:tex_flavor = 'latex'
 
 " VimWiki
-let g:vimwiki_list = [{'path': '~/Documents/Wiki/src/',
+let g:vimwiki_list = [{'path': '~/Documents/VimWiki/src/',
 		      \ 'path_html': '~/Documents/Wiki/html/',
 		      \ 'syntax': 'markdown', 'ext': '.md',}]
 

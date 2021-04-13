@@ -1,2 +1,2 @@
 #!/bin/sh
-stow -t ~/ aliasrc dunst git Xmodmap Xresources zshenv compton profile nvim shortcutrc zsh xinitrc rofi ncspot vifm newsboat clang-format haros neomutt spotifyd gcalcli zathura
+stow -t ~/ aliasrc dunst git Xmodmap Xresources zshenv compton profile nvim shortcutrc zsh xinitrc rofi ncspot vifm newsboat clang-format haros neomutt spotifyd gcalcli zathura emacs

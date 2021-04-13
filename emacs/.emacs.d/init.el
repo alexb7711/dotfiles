@@ -1,0 +1,156 @@
+;;  _   _ _____ ____  _____ _____ ___ ____      _____ __  __    _    ____ ____
+;; | | | | ____|  _ \| ____|_   _|_ _/ ___|    | ____|  \/  |  / \  / ___/ ___|
+;; | |_| |  _| | |_) |  _|   | |  | | |   _____|  _| | |\/| | / _ \| |   \___ \
+;; |  _  | |___|  _ <| |___  | |  | | |__|_____| |___| |  | |/ ___ \ |___ ___) |
+;; |_| |_|_____|_| \_\_____| |_| |___\____|    |_____|_|  |_/_/   \_\____|____/
+
+;;  ___  _   ___ _  __   _   ___ ___
+;; | _ \/_\ / __| |/ /  /_\ / __| __|
+;; |  _/ _ \ (__| ' <  / _ \ (_ | _|
+;; |_|/_/ \_\___|_|\_\/_/ \_\___|___|
+
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			  ("org"   . "https://orgmode.org/elpa/")
+			  ("elpa"   . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
+ '(package-selected-packages
+   '(doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; DEFAULTS
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(setq visible-bell t)
+
+;; __   _____ __  __     ___ __  __ _   _ _      _ _____ ___ ___  _  _
+;; \ \ / /_ _|  \/  |___| __|  \/  | | | | |    /_\_   _|_ _/ _ \| \| |
+;;  \ V / | || |\/| |___| _|| |\/| | |_| | |__ / _ \| |  | | (_) | .` |
+;;   \_/ |___|_|  |_|   |___|_|  |_|\___/|____/_/ \_\_| |___\___/|_|\_|
+
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;;    _   ___ _____ _  _ ___ _____ _ _____ ___ ___ ___
+;;   /_\ | __|_   _| || / __|_   _/_\_   _|_ _/ __/ __|
+;;  / _ \| _|  | | | __ \__ \ | |/ _ \| |  | | (__\__ \
+;; /_/ \_\___| |_| |_||_|___/ |_/_/ \_\_| |___\___|___/
+
+;; A lot of themes
+(use-package doom-themes)
+
+;; ALPHA
+(set-frame-parameter (selected-frame) 'alpha '(95 . 80))
+
+;; COLOR
+(load-theme 'doom-gruvbox)
+
+;; DOOM MODELINE
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+;; FONT
+(set-face-attribute 'default nil :font "Hurmit Nerd Font Mono" :height 110)
+
+;; LINE NUMBERS
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+;; RAINBOW DELIMITERS
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+;;    _  _   _ _____ ___       ___ ___  __  __ ___ _    ___ _____ ___ ___  _  _
+;;   /_\| | | |_   _/ _ \ ___ / __/ _ \|  \/  | _ \ |  | __|_   _|_ _/ _ \| \| |
+;;  / _ \ |_| | | || (_) |___| (_| (_) | |\/| |  _/ |__| _|  | |  | | (_) | .` |
+;; /_/ \_\___/  |_| \___/     \___\___/|_|  |_|_| |____|___| |_| |___\___/|_|\_|
+
+;; Auto Completion
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+	 :map ivy-minibuffer-map
+	 ("TAB" . ivy-alt-done)
+	 ("C-l" . ivy-alt-done)
+	 ("C-j" . ivy-next-line)
+	 ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-l" . ivy-done)
+	 ("C-d" . ivy-switch-buffer-kill)
+	 :map ivy-reverse-i-search-map
+	 ("C-k" . ivy-previous-line)
+	 ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+;; Auto completion made nicer
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+;; EMACS Ivy-enhanced commands
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	  ("C-x b" . counsel-ibuffer)
+	  ("C-x C-f" . counsel-find-file)
+	  :map minibuffer-local-map
+	  ("C-r" . 'counsel-minibuffer-history))
+  :config
+	(setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
+
+;;  ___ _   _ _  _  ___ _____ ___ ___  _  _   _   _    ___ _______   __
+;; | __| | | | \| |/ __|_   _|_ _/ _ \| \| | /_\ | |  |_ _|_   _\ \ / /
+;; | _|| |_| | .` | (__  | |  | | (_) | .` |/ _ \| |__ | |  | |  \ V /
+;; |_|  \___/|_|\_|\___| |_| |___\___/|_|\_/_/ \_\____|___| |_|   |_|
+
+
+;; Augemtned help
+(use-package helpful
+  :ensure t
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command]  . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key]      . helpful-key))
+
+;; Give information when use meta key strokes
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.1))

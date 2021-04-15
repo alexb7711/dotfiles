@@ -35,7 +35,7 @@
  '(custom-safe-themes
    '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
  '(package-selected-packages
-   '(doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
+   '(magit counsel-projectile counsel-projectil projectile hydra evil-collection doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -46,8 +46,8 @@
 ;; Improved key bindings and allows for leader keys (SPACE)
 (use-package general
   :config
-  (general-evil-setup t)
-  (general-create-definer rune/leader-keys
+;  (general-evil-setup t)
+  (general-create-definer heretic/leader-keys
 			  :keymaps '(normal insert visual emacs)
 			  :prefix "SPC"
 			  :global-prefix "C-SPC"))
@@ -80,6 +80,12 @@
   (evil-set-initial-state 'message-buffers-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
 
+;; Better EVIL configs in other modes
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 ;;------------------------------------------------------------------------------;;
 ;;    _   ___ _____ _  _ ___ _____ _ _____ ___ ___ ___                          ;;
 ;;   /_\ | __|_   _| || / __|_   _/_\_   _|_ _/ __/ __|                         ;;
@@ -103,6 +109,7 @@
 (set-frame-parameter (selected-frame) 'alpha '(95 . 80))
 
 ;; DOOM MODELINE
+(use-package all-the-icons)
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
@@ -166,6 +173,13 @@
 	(setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
 
 ;;------------------------------------------------------------------------------;;
+;;  ___   ___   ___ _   _ __  __ ___ _  _ _____                                 ;;
+;; |   \ / _ \ / __| | | |  \/  | __| \| |_   _|                                ;;
+;; | |) | (_) | (__| |_| | |\/| | _|| .` | | |                                  ;;
+;; |___/ \___/ \___|\___/|_|  |_|___|_|\_| |_|                                  ;;
+;;------------------------------------------------------------------------------;;
+
+;;------------------------------------------------------------------------------;;
 ;;  ___ _   _ _  _  ___ _____ ___ ___  _  _   _   _    ___ _______   __         ;;
 ;; | __| | | | \| |/ __|_   _|_ _/ _ \| \| | /_\ | |  |_ _|_   _\ \ / /         ;;
 ;; | _|| |_| | .` | (__  | |  | | (_) | .` |/ _ \| |__ | |  | |  \ V /          ;;
@@ -174,18 +188,6 @@
 
 ;; Auto Compile
 (add-hook 'after-save-hook 'compiler-script)
-
-;; Augemtned help
-(use-package helpful
-  :ensure t
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command]  . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key]      . helpful-key))
 
 ;; Cleanup whitespace
 (add-hook 'before-save-hook' 'delete-trailing-whitespace)
@@ -199,6 +201,12 @@
 
 ;; Open current buffer in zathura 
 (global-set-key (kbd "C-c z") 'open-in-zathura)
+
+;; HERETIC LEADER KEY FUNCTION
+(heretic/leader-keys
+   "t"  '(:ignore t :which-key "toggles")
+   "tt" '(counsel-load-theme :which-key "choose theme")
+   "ts" '(hydra-text-scale/body :which-key "scale text"))
 
 ;;------------------------------------------------------------------------------;;
 ;;  ___ _   _ _  _  ___ _____ ___ ___  _  _ ___                                 ;;
@@ -221,12 +229,74 @@
   (call-process-shell-command (concat "zathura " (file-name-base) ".pdf&") nil 0))
 
 ;;------------------------------------------------------------------------------;;
-;;  ___   ___   ___ _   _ __  __ ___ _  _ _____                                 ;;
-;; |   \ / _ \ / __| | | |  \/  | __| \| |_   _|                                ;;
-;; | |) | (_) | (__| |_| | |\/| | _|| .` | | |                                  ;;
-;; |___/ \___/ \___|\___/|_|  |_|___|_|\_| |_|                                  ;;
+;;  _  _ ___ _    ___ ___ _   _ _                                               ;;
+;; | || | __| |  | _ \ __| | | | |                                              ;;
+;; | __ | _|| |__|  _/ _|| |_| | |__                                            ;;
+;; |_||_|___|____|_| |_|  \___/|____|                                           ;;
 ;;------------------------------------------------------------------------------;;
 
+(use-package helpful
+  :ensure t
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command]  . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key]      . helpful-key))
+
+;;------------------------------------------------------------------------------;;
+;;  _  ___   _____  ___    _                                                    ;;
+;; | || \ \ / /   \| _ \  /_\                                                   ;;
+;; | __ |\ V /| |) |   / / _ \                                                  ;;
+;; |_||_| |_| |___/|_|_\/_/ \_\                                                 ;;
+;;------------------------------------------------------------------------------;;
+
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+"scale text"
+("j" text-scale-increase "in")
+("k" text-scale-decrease "out")
+("f" nil "finished" :exit t))
+
+;;------------------------------------------------------------------------------;;
+;;  ___ ___  ___     _ ___ ___ _____                                            ;;
+;; | _ \ _ \/ _ \ _ | | __/ __|_   _|                                           ;;
+;; |  _/   / (_) | || | _| (__  | |                                             ;;
+;; |_| |_|_\\___/ \__/|___\___| |_|                                             ;;
+;;                                                                              ;;
+;;  __  __   _   _  _   _   ___ ___ __  __ ___ _  _ _____                       ;;
+;; |  \/  | /_\ | \| | /_\ / __| __|  \/  | __| \| |_   _|                      ;;
+;; | |\/| |/ _ \| .` |/ _ \ (_ | _|| |\/| | _|| .` | | |                        ;;
+;; |_|  |_/_/ \_\_|\_/_/ \_\___|___|_|  |_|___|_|\_| |_|                        ;;
+;;------------------------------------------------------------------------------;;
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))  
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; Set paths to where you have your projects at
+  (when (file-directory-p "~/Code")
+    (setq projectil-project-search-path '("~/Code/")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+;; Better integration with counsel and ivy
+(use-package counsel-projectile)
+:config (counsel-projectile-mode)
+
+;;------------------------------------------------------------------------------;;
+;;  __  __   _   ___ ___ _____                                                  ;;
+;; |  \/  | /_\ / __|_ _|_   _|                                                 ;;
+;; | |\/| |/ _ \ (_ || |  | |                                                   ;;
+;; |_|  |_/_/ \_\___|___| |_|                                                   ;;
+;;------------------------------------------------------------------------------;;
+
+(use-package magit)
 
 ;;------------------------------------------------------------------------------;;
 ;; __      _____ _  _ ___   _____      __                                       ;;

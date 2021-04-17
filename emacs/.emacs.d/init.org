@@ -2,8 +2,45 @@
 #+title Heretic Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
-* Aethstetics
+* [[https://jwiegley.github.io/use-package/installation/][Package]]
 
+Set up ~(use-package)~ package manager. This has to be done first to set up =use-package= for new installations.
+
+#+begin_src emacs-lisp 
+
+    (require 'package)
+    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                             ("org"  . "https://orgmode.org/elpa/")
+                             ("elpa" . "https://elpa.gnu.org/packages/")))
+    (package-initialize)
+    (unless package-archive-contents
+      (package-refresh-contents))
+
+    ;; Initialize use-package on non-Linux platforms
+    (unless (package-installed-p 'use-package)
+      (package-install 'use-package))
+
+    (require 'use-package)
+    (setq use-package-always-ensure t)
+    (custom-set-variables
+     ;; custom-set-variables was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     '(custom-safe-themes
+       '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
+     '(package-selected-packages
+       '(matlab-mode visual-fill-column visual-fill org-bullets evil-magit forge magit counsel-projectile counsel-projectil projectile hydra evil-collection doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
+    (custom-set-faces
+     ;; custom-set-faces was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     )
+
+#+end_src
+
+* Aethstetics
 ** [[https://github.com/hlissner/emacs-doom-themes][Doom Themes]]
 A collection of good themes. Default theme is currently gruvbox.
 
@@ -58,7 +95,7 @@ Remove a bunch of the things that makes Emacs ugly.
   (set-face-attribute 'fixed-pitch nil :font "Hurmit Nerd Font Mono" :height 110)
 
   ;; Set variable pitch font
-  (set-face-attribute 'fixed-pitch nil :font "Cantarell" :height 110 :weight 'regular)
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 110 :weight 'regular)
 
 #+end_src
 
@@ -73,6 +110,7 @@ Remove a bunch of the things that makes Emacs ugly.
   ;; Disable line numbers for certain modes
   (dolist (mode '(org-mode-hook
                   term-mode-hook
+		         vterm-mode-hook
                   shell-mode-hook
                   treemacs-mode-hook
                   eshell-mode-hook))
@@ -82,6 +120,12 @@ Remove a bunch of the things that makes Emacs ugly.
   (defun disable-linum ()
     (display-line-numbers-mode 0))
 
+#+end_src
+
+** Transparency
+
+#+begin_src emacs-lisp
+  (set-frame-parameter (selected-frame) 'alpha '(90 . 80))
 #+end_src
 
 ** Rainbow Delimiters
@@ -98,11 +142,11 @@ Change color of matching parenthesis so it is easier to match. May replace/add o
 * Auto Compile
 Auto run the compile script asyncronously when file has been saved. Currently the compile script supports:
 
-- `*.md`
-- `*.markdown`
-- `*.ps`
-- `*.tex`
-- `*.puml`
+- =*.md=
+- =*.markdown=
+- =*.ps=
+- =*.tex=
+- =*.puml=
 
 Note: the script is only executed when the file has been updated. Consecutive saves will only run the script once untile the buffer has been edited again.
 
@@ -118,25 +162,152 @@ Note: the script is only executed when the file has been updated. Consecutive sa
 
 #+end_src
 
+* [[https://github.com/company-mode/company-mode][Company-Mode]]
+
+#+begin_src emacs-lisp
+
+  (use-package company
+    :after lsp-mode
+    :hook (lsp-mode . company-mode)
+    :bind (:map company-active-map
+           ("<tab>" . company-complete-selection))
+          (:map lsp-mode-map
+           ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
+
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+
+#+end_src
+
+* Dired
+Open dired by pressing =C-x C-j= and bind some vim keys to navigate forward and back through file system with =l= and =h=.
+
+#+begin_src emacs-lisp
+
+  (with-eval-after-load 'evil-collection
+    (use-package dired
+      :ensure nil
+      :commands (dired dired-jump)
+      :bind (("C-x C-j" . dired-jump))
+      :custom ((dired-listing-switches "-agho --group-directories-first"))
+      :config
+      (evil-collection-define-key 'normal 'dired-mode-map
+      "h" 'dired-single-up-directory
+      "l"  'dired-single-buffer)))
+
+#+end_src
+
+** Dired Single Buffer
+When navigating through the file system, don't create a new buffer when going up/down directories.
+
+#+begin_src emacs-lisp
+
+  (use-package dired-single)
+
+#+end_src
+
+** Dired Icons
+
+#+begin_src emacs-lisp
+
+  (use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+#+end_src
+
+** Hide/Show Dotfiles
+
+#+begin_src emacs-lisp
+
+  (use-package dired-hide-dotfiles
+    :hook (dired-mode . dired-hide-dotfiles-mode)
+    :config
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "H" 'dired-hide-dotfiles-mode))
+
+#+end_src
+
+** Open File with Appropriate Command
+#+begin_src emacs-lisp
+
+  (use-package dired-open
+  :config
+  (setq dired-open-extensions '(("png" . "feh")
+                                                                       ("jpg" . "feh")
+                                                                      ;; Video
+                                                                      ("mkv" . "mpv")
+                                                                      ("mp4" . "mpv")
+                                                                      ;; PDF
+                                                                      ("pdf" . "zathura"))))
+
+#+end_src
+** Useful Commands
+
+***  Copying and Renaming Files
+- =c= : Copy marked files (or if no files are selected, the current file)
+=- R= : Rename marked files, renaming multiple is a move
+=- % R= : Rename based on regular expression
+- If ivy is auto-completing another file name, but you don't want to name it that use =C-M-j=
+
+*** Creating and Extracting Archives
+- =z= : Compress or uncompress a file or folder to (=.tar.gz=)
+=- c= : Compress selection to a specific file
+=- dired-compress-file-alist= : Bind compression commands to file extension
+
+*** Delete Marked Files
+- =D= : Delete marked files
+=- d= : Marked file for deletion
+=- x= : Execute deletion for marks
+=- delete-by-moving-to-trash= : Move to trash instead of deleting permanently
+
+***  Marking Files
+-  =m= : Mark file
+-  =u= : Unmark file
+-  =U= : Unmark all files
+-  =t= : Invert marked files
+-  =% m= : Mark files using regular expression
+-  =*= : Lots of other auto-marking functions
+-  =k/K= : "Kill" marked items
+-  =g/g r= : Refresh buffer (=revert-buffer=)
+
+***  Other Common Operations
+=T= : Touch (change timestamp)
+=M= : Change file mode
+=O= : Change file owner
+=G= : Change file group
+=S= : Create a symbolic link to this file
+=L= : Load and Emacs Lisp file into emacs
+
 * [[https://github.com/noctuid/general.el][General]] 
 
 General provides a more convenient method for binding keys in emacs. It also allows us to use SPC and C-SPC as the leader keys for commands.
 
 #+begin_src emacs-lisp 
 
-  ;; Improved key bindings and allows for leader keys (SPACE)
-  (use-package general
-    :config
-    ;  (general-evil-setup t)
-      (general-create-definer heretic/leader-keys
-                              :keymaps '(normal insert visual emacs)
-                              :prefix "SPC"
-                              :global-prefix "C-SPC"))
+      ;; Improved key bindings and allows for leader keys (SPACE)
+      (use-package general
+        :config
+        ;  (general-evil-setup t)
+          (general-create-definer heretic/leader-keys
+                                  :keymaps '(normal insert visual emacs)
+                                  :prefix "SPC"
+                                  :global-prefix "C-SPC"))
 
-  (heretic/leader-keys
-     "t"  '(:ignore t :which-key "toggles")
-     "tt" '(counsel-load-theme :which-key "choose theme")
-     "ts" '(hydra-text-scale/body :which-key "scale text"))
+      (heretic/leader-keys
+         "t"  '(:ignore t :which-key "toggles")
+         "tt" '(counsel-load-theme :which-key "choose theme")
+         "ts" '(hydra-text-scale/body :which-key "scale text")
+
+         "sb" 'treemacs
+
+         "." 'dired
+
+         "p" 'projectile-command-map
+
+         "g" 'magit)
 
 #+end_src
 
@@ -159,7 +330,7 @@ Helpful is an alternative to the built-in Emacs help menu. It provides a more ri
 #+end_src
 
 * [[https://github.com/abo-abo/hydra][Hydra]]
-Hydra creates a menu displaying hot keys that perform a specific function. As an example, the `hydra-text-scale` function increases/decreaes font size as you press `j` or `k`.
+Hydra creates a menu displaying hot keys that perform a specific function. As an example, the =hydra-text-scale= function increases/decreaes font size as you press =j= or =k=.
 
 #+begin_src emacs-lisp 
 
@@ -231,7 +402,78 @@ This package come swith rich transformers for commands from Ivy and Counsel.
 
 #+end_src
 
+* [[https://github.com/emacs-lsp/lsp-mode/][Language Server Protocol (LSP)]]
+
+#+begin_src emacs-lisp
+
+    (use-package lsp-mode
+    :commands(lsp lsp-deffered)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (add-hook 'c++-mode-hook #'lsp)
+    (add-hook 'python-mode-hook #'lsp)
+    (add-hook 'shell-mode-hook #'lsp)
+    (add-hook 'latex-mode-hook #'lsp)
+    (lsp-enable-which-key-integration t))
+
+#+end_src
+
+** [[https://github.com/emacs-lsp/lsp-ui][lsp-ui]]
+
+=lsp-ui-doc-focus-frame= to enter the documentation frame to navigtate and search around
+=lsp-ui-doc-unfocus-frame= to leave documentation frame
+
+#+begin_src emacs-lisp
+  (use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+    :custom
+  (setq lsp-ui-doc-position 'bottom))
+#+end_src
+
+** [[https://github.com/emacs-lsp/lsp-ivy][lsp-ivy]]
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-ivy)
+
+#+end_src
+
+** Basic Completions
+    - =completion-at-point= for completions
+    - Signatures when writing methos (=C-n=, =C-p= to cycle signatures)
+
+** Hover
+** Find Definitions and References
+    - =lsp-find-definitions= : =C-c l g r=
+    - =lsp-find-references= : =C-c l g g=
+      
+** Rename Symbol
+    - =lsp-rename= : =C-c l r r=
+      
+** Diagnostics
+    - =flymake-show-diagnostics= to show diagnostics
+      
+** Code Formatting
+    - =lsp-format-buffer= : =C-c l = ==
+
+      Configure formatting options for some languages with =lsp-<language>-format= variables
+      
 * Languages
+** [[https://emacs-lsp.github.io/lsp-mode/page/lsp-clangd/][C/C++]]
+#+begin_src emacs-lisp
+
+  (setq lsp-clients-clangd-executable t)
+
+#+end_src
+** [[https://github.com/ROCKTAKEY/lsp-latex][LaTeX]]
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-latex)
+
+#+end_src
+
 ** [[https://github.com/ayonga/matlab-emacs][MATLAB]]
 
 #+begin_src emacs-lisp 
@@ -247,6 +489,28 @@ This package come swith rich transformers for commands from Ivy and Counsel.
 
 #+end_src
 
+** [[https://emacs-lsp.github.io/lsp-pyright/][Python]]
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-pyright
+    :ensure t
+    :hook (python-mode . (lambda ()
+                            (require 'lsp-pyright)
+                            (lsp))))  ; or lsp-deferred
+#+end_src
+
+** [[https://emacs-lsp.github.io/lsp-mode/page/lsp-bash/][Shell]]
+
+#+begin_src emacs-lisp
+
+  (use-package lsp-mode
+    :commands lsp
+    :hook
+    (sh-mode . lsp))
+
+#+end_src
+
 * [[https://github.com/magit/magit][Magit]]
 Magit is an interface to Git.
 
@@ -256,7 +520,7 @@ Magit is an interface to Git.
 
 #+end_src
 
-** [[https://github.com/magit/forge][Force]]
+** [[https://github.com/magit/forge][Forge]]
 Work with Git forges, such as Github and Gitlab. In other words, be able to make pull requests, address comments, etc. with Emacs and Magit.
 
 #+begin_src emacs-lisp 
@@ -277,7 +541,7 @@ Before the file saves, delete trailing whitepace in the file.
 #+end_src
 
 ** Open in Zathura
-Opens the file `name-of-buffer.pdf`, where name-of-buffer is the base name of the buffer currently being edited.
+Opens the file =name-of-buffer.pdf=, where name-of-buffer is the base name of the buffer currently being edited.
 
 #+begin_src emacs-lisp 
 
@@ -298,41 +562,42 @@ Org is a highly flexible structured plain text file format, composed of a few si
 
 #+begin_src emacs-lisp 
 
-  (use-package org
-    :hook (org-mode . heretic/org-mode-setup)
-    :config
-    ;; Replace '...' with down arrrow
-    (setq org-ellipsis " ▾"))
+    (use-package org
+      :hook (org-mode . heretic/org-mode-setup)
+      :config
+      ;; Replace '...' with down arrrow
+      (setq org-ellipsis " ▾" 
+       org-hide-emphasis-markers t))
 
-  ;; Set up org mode
-  (defun heretic/org-mode-setup ()
-    (org-indent-mode)
-    (variable-pitch-mode 1)
-    (auto-fill-mode 0)
-    (visual-line-mode 1)
-    (setq evil-auto-indent nil))
+    ;; Set up org mode
+    (defun heretic/org-mode-setup ()
+      (org-indent-mode)
+      (variable-pitch-mode 1)
+      (auto-fill-mode 0)
+      (visual-line-mode 1)
+      (setq evil-auto-indent nil))
 
-  ;; Only evaluate this after org-faces has loaded
-  (general-with-eval-after-load 'org-faces
-    ;; Set face heading sizes 
-    (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
-      (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+    ;; Only evaluate this after org-faces has loaded
+    (general-with-eval-after-load 'org-faces
+      ;; Set face heading sizes 
+      (dolist (face '((org-level-1 . 1.2)
+                    (org-level-2 . 1.1)
+                    (org-level-3 . 1.05)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+        (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
 
-  ;; Set fixed-pitch fonts for org mode
-  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil                                      :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-table nil                                      :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-verbatim nil                             :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil            :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil                            :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil                             :inherit 'fixed-pitch))
+    ;; Set fixed-pitch fonts for org mode
+    (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+    (set-face-attribute 'org-code nil                                      :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-table nil                                      :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-verbatim nil                             :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-special-keyword nil            :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-meta-line nil                            :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-checkbox nil                             :inherit 'fixed-pitch))
 #+end_src
 
 ** [[https://orgmode.org/worg/org-contrib/babel/][Babel]]
@@ -340,7 +605,7 @@ Allows you to create and run code snippets within org mode.
 
 The following is a [[https://orgmode.org/worg/org-contrib/babel/languages/index.html][list of languages]] that you can add to natively (or via pluggin) to allow snippets of code to be run.
 
-The [[https://orgmode.org/manual/Structure-Templates.html][structure templates]] are what append the "src emacs-lisp" to all the code blocks you see in this document and will respectively append "src shell" when a shell snippet is envoked, as well as "src python" for python. To envoke one of these snippets (emacs-lisp for example), type `<el [TAB]`. 
+The [[https://orgmode.org/manual/Structure-Templates.html][structure templates]] are what append the "src emacs-lisp" to all the code blocks you see in this document and will respectively append "src shell" when a shell snippet is envoked, as well as "src python" for python. To envoke one of these snippets (emacs-lisp for example), type =<el [TAB]=. 
 
 #+begin_src emacs-lisp 
 
@@ -389,44 +654,6 @@ Replace astriscs with nice bullets.
 
 #+end_src
 
-* [[https://jwiegley.github.io/use-package/installation/][Package]]
-
-Set up `(use-package)` package manager. 
-
-#+begin_src emacs-lisp 
-
-  (require 'package)
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                                                          ("org"  . "https://orgmode.org/elpa/")
-                                                          ("elpa" . "https://elpa.gnu.org/packages/")))
-  (package-initialize)
-  (unless package-archive-contents
-    (package-refresh-contents))
-
-  ;; Initialize use-package on non-Linux platforms
-  (unless (package-installed-p 'use-package)
-    (package-install 'use-package))
-
-  (require 'use-package)
-  (setq use-package-always-ensure t)
-  (custom-set-variables
-   ;; custom-set-variables was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(custom-safe-themes
-     '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
-   '(package-selected-packages
-     '(matlab-mode visual-fill-column visual-fill org-bullets evil-magit forge magit counsel-projectile counsel-projectil projectile hydra evil-collection doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   )
-
-#+end_src
-
 * [[https://github.com/bbatsov/projectile][Projectile]]
 Projectile is a project interaction library.
 
@@ -436,8 +663,6 @@ Projectile is a project interaction library.
     :diminish projectile-mode
     :config (projectile-mode)
     :custom ((projectile-completion-system 'ivy))  
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
     :init
     ;; Set paths to where you have your projects at
     (when (file-directory-p "~/Code")
@@ -453,6 +678,56 @@ Counsel-Projectile provides further ivy integration into projectile.
 
   (use-package counsel-projectile)
   :config (counsel-projectile-mode)
+
+#+end_src
+
+* [[https://github.com/Alexander-Miller/treemacs#installation][TreeMacs]]
+A nice side bar file system.
+
+#+begin_src emacs-lisp
+
+  (use-package treemacs
+        :ensure t
+        :defer t)
+
+  (use-package treemacs-evil
+        :after evil-collection)
+
+  (use-package lsp-treemacs
+        :after lsp)
+
+  (use-package treemacs-projectile
+        :after projectile)
+
+#+end_src
+
+* Evaluate Startup Time
+
+#+begin_src emacs-lisp
+
+  (defun heretic/display-startup-time ()
+  (interactive)
+  (message "Emacs loaded in %s with %d garbage collections."
+          (format "%.2f seconds"
+         (float-time
+         (time-subtract after-init-time before-init-time)))
+         gcs-done))
+
+(add-hook 'emacs-startup-hook #'heretic/display-startup-time)
+
+#+end_src
+
+* [[https://github.com/akermu/emacs-libvterm][Vterm]]
+
+Vterm is a terminal emulator that is built on the system that is being run (making it a lot faster than other terminal emulators) To compile, make sure you have =Cmake= and =libtool= installed.
+
+#+begin_src emacs-lisp
+
+(use-package vterm
+:commands vterm
+:config
+(setq vterm-shell "zsh")
+(setq vterm-max-scrollback 10000))
 
 #+end_src
 
@@ -486,7 +761,7 @@ Allows VIM key emulations.
 
 ** [[https://github.com/emacs-evil/evil-collection][EVIL Collection]]
 
-Includes a bunch of EVIL bindings to parts of Emacs that EVIL did not cover by default. This includes, but is not limited to, `help-mode`, `M-x calendar`, and Eshell.
+Includes a bunch of EVIL bindings to parts of Emacs that EVIL did not cover by default. This includes, but is not limited to, =help-mode=, =M-x calendar=, and Eshell.
 
 #+begin_src emacs-lisp 
 
@@ -515,7 +790,7 @@ Visual fill column is used to wrap text earlier than the actual buffer width.
 #+end_src
 
 * [[https://github.com/justbur/emacs-which-key][Which Key]]
-Which Key is a minor mode for Emacs that display the key bindings following the currently entered incomplete command. As an example press `C-x` and wait for minibuffer to pop up. It will show a list of keys and their associated actions.
+Which Key is a minor mode for Emacs that display the key bindings following the currently entered incomplete command. As an example press =C-x= and wait for minibuffer to pop up. It will show a list of keys and their associated actions.
 
 #+begin_src emacs-lisp 
 
@@ -526,3 +801,4 @@ Which Key is a minor mode for Emacs that display the key bindings following the 
     (setq which-key-idle-delay 0.1))
 
 #+end_src
+

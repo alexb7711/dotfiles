@@ -1,3 +1,33 @@
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org"  . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
+ '(package-selected-packages
+   '(matlab-mode visual-fill-column visual-fill org-bullets evil-magit forge magit counsel-projectile counsel-projectil projectile hydra evil-collection doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
 (use-package doom-themes
   :init (load-theme 'doom-gruvbox t))
 
@@ -27,7 +57,7 @@
 (set-face-attribute 'fixed-pitch nil :font "Hurmit Nerd Font Mono" :height 110)
 
 ;; Set variable pitch font
-(set-face-attribute 'fixed-pitch nil :font "Cantarell" :height 110 :weight 'regular)
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height 110 :weight 'regular)
 
 ;; Line numbers
 (column-number-mode)
@@ -36,6 +66,7 @@
 ;; Disable line numbers for certain modes
 (dolist (mode '(org-mode-hook
                 term-mode-hook
+		       vterm-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
                 eshell-mode-hook))
@@ -44,6 +75,8 @@
 ;; Disable line numbers on buffer
 (defun disable-linum ()
   (display-line-numbers-mode 0))
+
+(set-frame-parameter (selected-frame) 'alpha '(90 . 80))
 
 ;; RAINBOW DELIMITERS
 (use-package rainbow-delimiters
@@ -57,6 +90,52 @@
   "Run compile command on currently opened buffer"
   (call-process-shell-command (concat "compile " (buffer-file-name)) nil 0))
 
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(with-eval-after-load 'evil-collection
+  (use-package dired
+    :ensure nil
+    :commands (dired dired-jump)
+    :bind (("C-x C-j" . dired-jump))
+    :custom ((dired-listing-switches "-agho --group-directories-first"))
+    :config
+    (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l"  'dired-single-buffer)))
+
+(use-package dired-single)
+
+(use-package all-the-icons-dired
+:hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package dired-hide-dotfiles
+  :hook (dired-mode . dired-hide-dotfiles-mode)
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "H" 'dired-hide-dotfiles-mode))
+
+(use-package dired-open
+:config
+(setq dired-open-extensions '(("png" . "feh")
+                                                                     ("jpg" . "feh")
+                                                                    ;; Video
+                                                                    ("mkv" . "mpv")
+                                                                    ("mp4" . "mpv")
+                                                                    ;; PDF
+                                                                    ("pdf" . "zathura"))))
+
 ;; Improved key bindings and allows for leader keys (SPACE)
 (use-package general
   :config
@@ -69,7 +148,15 @@
 (heretic/leader-keys
    "t"  '(:ignore t :which-key "toggles")
    "tt" '(counsel-load-theme :which-key "choose theme")
-   "ts" '(hydra-text-scale/body :which-key "scale text"))
+   "ts" '(hydra-text-scale/body :which-key "scale text")
+
+   "sb" 'treemacs
+
+   "." 'dired
+
+   "p" 'projectile-command-map
+
+   "g" 'magit)
 
 (use-package helpful
   :ensure t
@@ -121,6 +208,28 @@
   :init
   (ivy-rich-mode 1))
 
+(use-package lsp-mode
+:commands(lsp lsp-deffered)
+:init
+(setq lsp-keymap-prefix "C-c l")
+:config
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp)
+(add-hook 'shell-mode-hook #'lsp)
+(add-hook 'latex-mode-hook #'lsp)
+(lsp-enable-which-key-integration t))
+
+(use-package lsp-ui
+:hook (lsp-mode . lsp-ui-mode)
+  :custom
+(setq lsp-ui-doc-position 'bottom))
+
+(use-package lsp-ivy)
+
+(setq lsp-clients-clangd-executable t)
+
+(use-package lsp-latex)
+
 (use-package matlab
   :ensure matlab-mode
   :config
@@ -129,6 +238,17 @@
    '("\\.m\\'" . matlab-mode))
   (setq matlab-indent-function t)
   (setq matlab-shell-command "matlab"))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
+(use-package lsp-mode
+  :commands lsp
+  :hook
+  (sh-mode . lsp))
 
 (use-package magit)
 
@@ -151,7 +271,8 @@
   :hook (org-mode . heretic/org-mode-setup)
   :config
   ;; Replace '...' with down arrrow
-  (setq org-ellipsis " ▾"))
+  (setq org-ellipsis " ▾" 
+   org-hide-emphasis-markers t))
 
 ;; Set up org mode
 (defun heretic/org-mode-setup ()
@@ -213,42 +334,10 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                                                        ("org"  . "https://orgmode.org/elpa/")
-                                                        ("elpa" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("75b8719c741c6d7afa290e0bb394d809f0cc62045b93e1d66cd646907f8e6d43" default))
- '(package-selected-packages
-   '(matlab-mode visual-fill-column visual-fill org-bullets evil-magit forge magit counsel-projectile counsel-projectil projectile hydra evil-collection doom-themes helpful ivy-rich which-key rainbow-delimiters counsel doom-modeline ivy use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
   :custom ((projectile-completion-system 'ivy))  
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
   :init
   ;; Set paths to where you have your projects at
   (when (file-directory-p "~/Code")
@@ -257,6 +346,35 @@
 
 (use-package counsel-projectile)
 :config (counsel-projectile-mode)
+
+(use-package treemacs
+      :ensure t
+      :defer t)
+
+(use-package treemacs-evil
+      :after evil-collection)
+
+(use-package lsp-treemacs
+      :after lsp)
+
+(use-package treemacs-projectile
+      :after projectile)
+
+(defun heretic/display-startup-time ()
+  (interactive)
+  (message "Emacs loaded in %s with %d garbage collections."
+          (format "%.2f seconds"
+         (float-time
+         (time-subtract after-init-time before-init-time)))
+         gcs-done))
+
+(add-hook 'emacs-startup-hook #'heretic/display-startup-time)
+
+(use-package vterm
+:commands vterm
+:config
+(setq vterm-shell "zsh")
+(setq vterm-max-scrollback 10000))
 
 ;; EVIL Mode
 (use-package evil
